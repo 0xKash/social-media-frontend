@@ -1,3 +1,4 @@
+// imports
 import {
   Card,
   CardContent,
@@ -10,12 +11,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerErrorHandler } from "@/lib/errorHandlers";
+import { registerUser } from "@/api/auth";
 
 function Register() {
-  const API_URL = process.env.API_URL;
+  const navigate = useNavigate();
   const [error, setError] = useState([]);
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
@@ -23,32 +25,14 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const data = await registerUser(username, password, confirmPassword);
 
-    try {
-      const response = await fetch(`${API_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-          confirm_password: confirmPassword,
-        }),
-      });
-
-      const data = await response.json();
-
-      // Check error on API call
-      if (data.status === "error") {
-        setError(registerErrorHandler(data.error));
-        return;
-      }
-
-      console.log("ok");
-    } catch (err) {
-      console.error(err);
+    // Check error on API call
+    if (data.status === "error") {
+      setError(registerErrorHandler(data.error));
+      return;
     }
+    navigate("/login");
   };
 
   return (
@@ -104,6 +88,8 @@ function Register() {
                   value={username}
                   error={error}
                   onChange={(e) => setUsername(e.target.value)}
+                  minLength="3"
+                  maxLength="12"
                 />
                 {error && error.error === "username" && (
                   <p className="text-xs text-red-500">{error.data}</p>
@@ -119,6 +105,11 @@ function Register() {
                   value={password}
                   error={error}
                   onChange={(e) => setPassword(e.target.value)}
+                  minLength="8"
+                  maxLength="64"
+                  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$"
+                  title="Must contain at least one number, one uppercase letter, one lowercase letter and one symbol"
+                  required
                 />
               </div>
               <div className="grid gap-2">
@@ -131,6 +122,9 @@ function Register() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   error={error}
+                  minLength="8"
+                  maxLength="64"
+                  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$"
                 />
                 {error && error.error === "password" && (
                   <p className="text-xs text-red-500">{error.data}</p>

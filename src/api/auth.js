@@ -1,0 +1,20 @@
+const API_URL = process.env.API_URL;
+
+export const registerUser = async (username, password, confirmPassword) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        confirm_password: confirmPassword,
+      }),
+    });
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
+};
