@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80" height="80" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="200" height="200" rx="30" fill="#111111"/>
+  <text x="50%" y="55%" text-anchor="middle" fill="white" font-size="120" font-family="Segoe UI, sans-serif" font-weight="600" dy=".35em">K</text>
+</svg>
