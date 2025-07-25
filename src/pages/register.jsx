@@ -90,6 +90,7 @@ function Register() {
                   onChange={(e) => setUsername(e.target.value)}
                   minLength="3"
                   maxLength="12"
+                  required
                 />
                 {error && error.error === "username" && (
                   <p className="text-xs text-red-500">{error.data}</p>
@@ -125,6 +126,7 @@ function Register() {
                   minLength="8"
                   maxLength="64"
                   pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$"
+                  required
                 />
                 {error && error.error === "password" && (
                   <p className="text-xs text-red-500">{error.data}</p>
