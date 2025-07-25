@@ -34,7 +34,9 @@ function Login() {
               fontFamily="Segoe UI, sans-serif"
               fontWeight="600"
               dy=".35em"
-            ></text>
+            >
+              K
+            </text>
           </svg>
           Kash.social
         </CardTitle>
