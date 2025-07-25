@@ -28,11 +28,11 @@ function Register() {
             <text
               x="50%"
               y="55%"
-              text-anchor="middle"
+              textAnchor="middle"
               fill="white"
-              font-size="120"
-              font-family="Segoe UI, sans-serif"
-              font-weight="600"
+              fontSize="120"
+              fontFamily="Segoe UI, sans-serif"
+              fontWeight="600"
               dy=".35em"
             >
               K
