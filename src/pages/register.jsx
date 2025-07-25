@@ -11,8 +11,46 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { registerErrorHandler } from "@/lib/errorHandlers";
 
 function Register() {
+  const API_URL = process.env.API_URL;
+  const [error, setError] = useState([]);
+  const [username, setUsername] = useState([]);
+  const [password, setPassword] = useState([]);
+  const [confirmPassword, setConfirmPassword] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`${API_URL}/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+          confirm_password: confirmPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      // Check error on API call
+      if (data.status === "error") {
+        setError(registerErrorHandler(data.error));
+        return;
+      }
+
+      console.log("ok");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <main className="flex flex-col justify-center items-center w-full h-screen bg-background ">
       <Card className="w-full max-w-sm bg-back flex justify-center items-center mb-5">
@@ -55,23 +93,48 @@ function Register() {
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form>
+          <form id="register-form" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Username</Label>
-                <Input id="email" placeholder="Username" required />
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  id="username"
+                  type="username"
+                  placeholder="Username"
+                  value={username}
+                  error={error}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                {error && error.error === "username" && (
+                  <p className="text-xs text-red-500">{error.data}</p>
+                )}
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  error={error}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="confirm-password">Confirm password</Label>
                 </div>
-                <Input id="confirm-password" type="password" required />
+                <Input
+                  id="confirm-password"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  error={error}
+                />
+                {error && error.error === "password" && (
+                  <p className="text-xs text-red-500">{error.data}</p>
+                )}
               </div>
             </div>
           </form>
@@ -81,6 +144,7 @@ function Register() {
             type="submit"
             variant="secondary"
             className="w-full bg-chart-1"
+            form="register-form"
           >
             Register
           </Button>
