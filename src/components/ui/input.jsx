@@ -10,13 +10,18 @@ function Input({
   onChange,
   value,
   error,
+  title,
+  pattern,
   ...props
 }) {
   return (
     <input
+      required
       type={type}
       minLength={minLength}
       maxLength={maxLength}
+      title={title}
+      pattern={pattern}
       onChange={onChange}
       value={value}
       data-slot="input"
