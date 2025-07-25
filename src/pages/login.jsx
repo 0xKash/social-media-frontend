@@ -15,7 +15,30 @@ function Login() {
   return (
     <main className="flex flex-col justify-center items-center w-full h-screen bg-background ">
       <Card className="w-full max-w-sm bg-back flex justify-center items-center mb-5">
-        <CardTitle className="text-5xl ">Kash.social</CardTitle>
+        <CardTitle className="flex items-center gap-3 text-3xl ">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+          >
+            <rect width="200" height="200" rx="30" fill="#111111" />
+            <text
+              x="50%"
+              y="55%"
+              text-anchor="middle"
+              fill="white"
+              font-size="120"
+              font-family="Segoe UI, sans-serif"
+              font-weight="600"
+              dy=".35em"
+            >
+              K
+            </text>
+          </svg>
+          Kash.social
+        </CardTitle>
       </Card>
 
       <Card className="w-full max-w-sm bg-back ">
