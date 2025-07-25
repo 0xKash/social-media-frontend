@@ -59,7 +59,13 @@ function Login() {
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Username</Label>
-                <Input id="email" placeholder="Username" required />
+                <Input
+                  id="email"
+                  placeholder="Username"
+                  minLength="3"
+                  maxLength="12"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
