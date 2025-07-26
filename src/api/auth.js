@@ -23,6 +23,7 @@ export const loginUser = async (username, password) => {
   try {
     const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -35,4 +36,8 @@ export const loginUser = async (username, password) => {
   } catch (err) {
     console.error(err);
   }
+};
+
+export const githubLoginUser = async () => {
+  window.location.href = `${API_URL}/auth/github`;
 };
