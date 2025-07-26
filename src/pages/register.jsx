@@ -25,14 +25,18 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await registerUser(username, password, confirmPassword);
+    try {
+      const data = await registerUser(username, password, confirmPassword);
 
-    // Check error on API call
-    if (data.status === "error") {
-      setError(registerErrorHandler(data.error));
-      return;
+      // Check error on API call
+      if (data.status === "error") {
+        setError(registerErrorHandler(data.error));
+        return;
+      }
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
     }
-    navigate("/login");
   };
 
   return (
