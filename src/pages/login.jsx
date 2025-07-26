@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "@/api/auth";
+import { githubLoginUser, loginUser } from "@/api/auth";
 import { loginErrorHandler } from "@/lib/errorHandlers";
 
 function Login() {
@@ -33,6 +33,15 @@ function Login() {
       }
 
       console.log(data);
+      navigate("/home");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleOnClick = async (e) => {
+    try {
+      githubLoginUser();
       navigate("/home");
     } catch (err) {
       console.error(err);
@@ -120,7 +129,7 @@ function Login() {
           >
             Login
           </Button>
-          <Button variant="outline" className="w-full">
+          <Button variant="outline" className="w-full" onClick={handleOnClick}>
             Login with Github
             <svg
               fill="#FFFFFF"
