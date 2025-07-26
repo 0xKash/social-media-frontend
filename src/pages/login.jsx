@@ -7,19 +7,26 @@ import {
   CardTitle,
   CardAction,
 } from "@/components/ui/card";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
 import { githubLoginUser, loginUser } from "@/api/auth";
 import { loginErrorHandler } from "@/lib/errorHandlers";
+import { Toaster, toast } from "sonner";
 
 function Login() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [error, setError] = useState([]);
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
+
+  useEffect(() => {
+    if (searchParams.get("register")) toast.success("Registration successful");
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +39,6 @@ function Login() {
         return;
       }
 
-      console.log(data);
       navigate("/home");
     } catch (err) {
       console.error(err);
@@ -50,6 +56,7 @@ function Login() {
 
   return (
     <main className="flex flex-col justify-center items-center w-full h-screen bg-background ">
+      <Toaster richColors />
       <Card className="w-full max-w-sm bg-back flex justify-center items-center mb-5">
         <CardTitle className="flex items-center gap-3 text-3xl ">
           <svg

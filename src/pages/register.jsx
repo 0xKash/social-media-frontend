@@ -33,7 +33,8 @@ function Register() {
         setError(registerErrorHandler(data.error));
         return;
       }
-      navigate("/login");
+
+      navigate("/login?register=true");
     } catch (err) {
       console.error(err);
     }
@@ -127,9 +128,6 @@ function Register() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   error={error}
-                  minLength="8"
-                  maxLength="64"
-                  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$"
                   required
                 />
                 {error && error.error === "password" && (
