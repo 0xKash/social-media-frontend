@@ -7,12 +7,38 @@ import {
   CardTitle,
   CardAction,
 } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "@/api/auth";
+import { loginErrorHandler } from "@/lib/errorHandlers";
 
 function Login() {
+  const navigate = useNavigate();
+  const [error, setError] = useState([]);
+  const [username, setUsername] = useState([]);
+  const [password, setPassword] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await loginUser(username, password);
+
+      // Check error on API call
+      if (data.status === "error") {
+        setError(loginErrorHandler(data));
+        return;
+      }
+
+      console.log(data);
+      navigate("/home");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <main className="flex flex-col justify-center items-center w-full h-screen bg-background ">
       <Card className="w-full max-w-sm bg-back flex justify-center items-center mb-5">
@@ -55,7 +81,7 @@ function Login() {
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form>
+          <form id="login-form" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Username</Label>
@@ -64,6 +90,8 @@ function Login() {
                   placeholder="Username"
                   minLength="3"
                   maxLength="12"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
                   required
                 />
               </div>
@@ -71,16 +99,24 @@ function Login() {
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  required
+                />
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex-col gap-2">
+          {error && <p className="text-xs text-red-500">{error}</p>}
           <Button
             type="submit"
             variant="secondary"
             className="w-full bg-chart-1"
+            form="login-form"
           >
             Login
           </Button>

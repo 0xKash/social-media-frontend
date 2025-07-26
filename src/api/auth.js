@@ -18,3 +18,21 @@ export const registerUser = async (username, password, confirmPassword) => {
     console.error(err);
   }
 };
+
+export const loginUser = async (username, password) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    });
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
+};
