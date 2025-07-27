@@ -2,39 +2,27 @@ import { SidebarInset } from "@/components/ui/sidebar";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Card, CardHeader } from "@/components/ui/card";
 
 const Home = () => {
   return (
-    <SidebarInset>
-      <header className="flex h-14 shrink-0 items-center gap-2">
-        <div className="flex flex-1 items-center gap-2 px-3"></div>
-        <div className="ml-auto px-3"></div>
-      </header>
-      <div className="flex gap-0.5 pl-30 justify-center">
-        <div className="flex flex-1 flex-col gap-4 px-4 py-10 shrink">
-          <div className="bg-card mx-auto h-30 w-full max-w-3xl rounded-sm flex items-center justify-center gap-5">
-            <Avatar className=" size-15 rounded-xl">
+    <main className="size-full py-10 px-10 lg:p-20 lg:py-20 border">
+      <div className="flex gap-5">
+        <div className="w-full h-full flex flex-col gap-5">
+          <div className="w-full bg-popover h-30 flex items-center gap-5 rounded-lg border p-5 max-sm:hidden">
+            <Avatar className=" rounded-lg">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <Input className="h-10 w-md " placeholder="What's happening?" />
-            <Button
-              type="submit"
-              variant="secondary"
-              className="h-10 hover:h-11 hover:w-15"
-            >
+            <Input />
+            <Button type="submit" variant="outline">
               Post
             </Button>
           </div>
-          <div className="bg-card mx-auto h-50 w-full max-w-3xl rounded-sm" />
-          <div className="bg-card mx-auto h-50 w-full max-w-3xl rounded-sm" />
-          <div className="bg-card mx-auto h-50 w-full max-w-3xl rounded-sm" />
         </div>
-        <div className="flex flex-1 flex-col gap-4 px-4 py-10">
-          <div className="bg-card  h-full w-lg max-w-3xl rounded-sm flex items-center justify-center gap-5"></div>
-        </div>
+        <div className="w-1/2 bg-popover h-30 flex max-xl:hidden rounded-lg border"></div>
       </div>
-    </SidebarInset>
+    </main>
   );
 };
 
