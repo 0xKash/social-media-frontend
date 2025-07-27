@@ -44,7 +44,7 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
       icon: Flame,
     },
     {
-      title: "Friends",
+      title: "Following",
       url: "#",
       icon: Contact,
     },
