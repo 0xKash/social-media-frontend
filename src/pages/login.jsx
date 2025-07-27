@@ -55,7 +55,7 @@ function Login() {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center w-full h-screen bg-background ">
+    <>
       <Toaster richColors />
       <Card className="w-full max-w-sm bg-back flex justify-center items-center mb-5">
         <CardTitle className="flex items-center gap-3 text-3xl ">
@@ -151,7 +151,7 @@ function Login() {
           </Button>
         </CardFooter>
       </Card>
-    </main>
+    </>
   );
 }
 
