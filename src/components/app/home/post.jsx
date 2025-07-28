@@ -14,6 +14,8 @@ export function Post({
   followBool,
   likeNumber,
   commentNumber,
+  username,
+  joinedAt,
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -23,7 +25,11 @@ export function Post({
             <AvatarImage src={avatar} />
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
-          <HoverCardHome follow={followBool} />
+          <HoverCardHome
+            follow={followBool}
+            username={username}
+            joinedAt={joinedAt}
+          />
           {badgeBool && (
             <Badge
               variant="default"
