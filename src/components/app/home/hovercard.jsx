@@ -6,25 +6,23 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-export function HoverCardHome({ follow }) {
+export function HoverCardHome({ follow, username, joinedAt }) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">@0xKash</Button>
+        <Button variant="link">{`@${username}`}</Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex items-center gap-1">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>VC</AvatarFallback>
+            <AvatarFallback>KH</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
             <a className="text-sm font-semibold" href="#">
-              @0xKash
+              {`@${username}`}
             </a>
-            <div className="text-muted-foreground text-xs">
-              Joined December 2021
-            </div>
+            <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
           </div>
           {follow ? (
             <Button className="ml-auto" variant="ghost" disabled>
