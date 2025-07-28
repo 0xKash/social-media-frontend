@@ -10,8 +10,6 @@ import { Plus } from "lucide-react";
 import { DialogHome } from "@/components/app/home/dialogHome";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState([]);
-
   // sample data
   const userAvatar = "https://github.com/shadcn.png";
   const users = [
