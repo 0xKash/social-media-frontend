@@ -35,7 +35,7 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
   const items = [
     {
       title: "Home",
-      url: "#",
+      url: "/home",
       icon: Home,
     },
     {
