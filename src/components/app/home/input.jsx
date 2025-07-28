@@ -9,7 +9,7 @@ export function InputHome({ avatar }) {
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg border p-5 max-sm:hidden">
       <Avatar className="lg:size-20 rounded-lg">
         <AvatarImage src={avatar} />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>KH</AvatarFallback>
       </Avatar>
 
       <div className="grid w-full gap-3">
