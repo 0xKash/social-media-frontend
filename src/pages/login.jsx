@@ -1,4 +1,5 @@
-import { Toaster, toast } from "sonner";
+// imports
+import { Toaster } from "sonner";
 import { AuthTitle } from "@/components/app/auth/authTitle";
 import { LoginCard } from "@/components/app/auth/loginCard";
 

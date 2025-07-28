@@ -1,13 +1,6 @@
+// imports
 import { NavUser } from "@/components/app/sidebar/nav-user";
-import {
-  Calendar,
-  Home,
-  Inbox,
-  Search,
-  Settings,
-  Contact,
-  Flame,
-} from "lucide-react";
+import { Home, Settings, Contact, Flame } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,

@@ -1,12 +1,8 @@
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+// imports
 import { Post } from "@/components/app/home/post";
 import { Separator } from "@/components/ui/separator";
 import { InputHome } from "@/components/app/home/input";
-import { Button } from "@/components/ui/button";
 import { UserFollow } from "@/components/app/home/userFollow";
-import { useState } from "react";
-import { Plus } from "lucide-react";
 import { DialogHome } from "@/components/app/home/dialogHome";
 
 const Home = () => {

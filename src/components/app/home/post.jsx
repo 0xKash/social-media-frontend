@@ -1,3 +1,4 @@
+// imports
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { HoverCardHome } from "@/components/app/home/hovercard";
 import { Badge } from "@/components/ui/badge";
