@@ -1,18 +1,11 @@
 // imports
 import { NavUser } from "@/components/app/sidebar/nav-user";
-import { Home, Settings, Contact, Flame } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarGroupLabel,
-  SidebarGroup,
-  SidebarGroupContent,
 } from "@/components/ui/sidebar";
 import { SidebarTitle } from "./sidebarTitle";
 import { SidebarMenuContent } from "./sidebarMenuContent";
