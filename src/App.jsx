@@ -19,7 +19,7 @@ function App() {
       >
         <AppSidebar />
         <SidebarTrigger className="m-2" />
-        <main className="flex flex-col justify-center items-center w-full  bg-background">
+        <main className="flex flex-col justify-center items-center w-full overflow-x-hidden bg-background">
           <RouterProvider router={router} />
         </main>
       </SidebarProvider>

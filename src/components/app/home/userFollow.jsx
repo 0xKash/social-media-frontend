@@ -10,7 +10,7 @@ export function UserFollow({ username, avatar, followBool, badgeBool }) {
         <AvatarImage src={avatar} />
         <AvatarFallback className="rounded-lg">KH</AvatarFallback>
       </Avatar>
-      <h5 className="text-xl font-semibold">{`@${username}`}</h5>
+      <a className="text-xl font-semibold" href="#">{`@${username}`}</a>
       {badgeBool && (
         <Badge
           variant="default"

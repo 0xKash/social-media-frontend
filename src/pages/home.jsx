@@ -1,12 +1,16 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+
 import { Post } from "@/components/app/home/post";
 import { Separator } from "@/components/ui/separator";
 import { InputHome } from "@/components/app/home/input";
 import { Button } from "@/components/ui/button";
 import { UserFollow } from "@/components/app/home/userFollow";
+import { useState } from "react";
+import { Plus } from "lucide-react";
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState([]);
+
   // sample data
   const userAvatar = "https://github.com/shadcn.png";
   const users = [
@@ -67,16 +71,71 @@ const Home = () => {
       likeNumber: "267",
       commentNumber: "26",
     },
+    {
+      avatar: "https://github.com/shadcn.png",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
+      date: "7/27/2025",
+      badgeBool: true,
+      followBool: true,
+      likeBool: true,
+      likeNumber: "267",
+      commentNumber: "26",
+    },
+    {
+      avatar: "https://github.com/shadcn.png",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
+      date: "7/27/2025",
+      badgeBool: true,
+      followBool: true,
+      likeBool: true,
+      likeNumber: "267",
+      commentNumber: "26",
+    },
+    {
+      avatar: "https://github.com/shadcn.png",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
+      date: "7/27/2025",
+      badgeBool: true,
+      followBool: true,
+      likeBool: true,
+      likeNumber: "267",
+      commentNumber: "26",
+    },
+    {
+      avatar: "https://github.com/shadcn.png",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
+      date: "7/27/2025",
+      badgeBool: true,
+      followBool: true,
+      likeBool: true,
+      likeNumber: "267",
+      commentNumber: "26",
+    },
+    {
+      avatar: "https://github.com/shadcn.png",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
+      date: "7/27/2025",
+      badgeBool: true,
+      followBool: true,
+      likeBool: true,
+      likeNumber: "267",
+      commentNumber: "26",
+    },
   ];
 
   return (
-    <main className="py-10 px-10 lg:p-20 lg:py-20 flex gap-5 min-h-screen ">
-      <div className="w-full h-fit flex flex-col gap-5 ">
+    <main className="py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
+      <div className="w-full h-fit flex flex-col gap-5  ">
         <InputHome avatar={userAvatar} />
-        <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5 border">
+        <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
           {posts.map((post, key) => (
             <>
-              <div key={key}>
+              <div>
                 <Post
                   avatar={post.avatar}
                   badgeBool={post.badgeBool}
@@ -93,10 +152,11 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="w-1/2 bg-popover h-fit  sticky top-20 max-xl:hidden rounded-lg p-5 border">
+      <div className="bg-popover w-1/2 h-fit sticky max-xl:hidden rounded-lg p-5 border">
         <h4 className="text-2xl font-semibold">Who to follow</h4>
-        {users.map((user) => (
+        {users.map((user, key) => (
           <UserFollow
+            key={key}
             username={user.username}
             avatar={user.avatar}
             followBool={user.followBool}
@@ -104,6 +164,9 @@ const Home = () => {
           />
         ))}
       </div>
+      <Button className="fixed size-15 bottom-6 right-4 sm:right-6 rounded-full shadow-md p-4 z-50 sm:hidden">
+        <Plus className="size-8" />
+      </Button>
     </main>
   );
 };
