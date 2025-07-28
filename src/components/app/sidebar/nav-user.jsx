@@ -65,7 +65,7 @@ export function NavUser({ user }) {
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">
+                  <span className="truncate font-semibold flex items-center gap-5">
                     {`@${user.name}`}
                     {user.githubBadge && (
                       <Badge

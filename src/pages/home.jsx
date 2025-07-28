@@ -33,20 +33,22 @@ const Home = () => {
     <main className="py-10 px-10 lg:p-20 lg:py-20 flex gap-5 min-h-screen ">
       <div className="w-full h-fit flex flex-col gap-5 ">
         <InputHome avatar={userAvatar} />
-        <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-10">
-          {posts.map((post) => (
+        <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5">
+          {posts.map((post, key) => (
             <>
-              <Post
-                avatar={post.avatar}
-                badgeBool={post.badgeBool}
-                followBool={post.followBool}
-                date={post.date}
-                content={post.content}
-                likeBool={post.likeBool}
-                likeNumber={post.likeNumber}
-                commentNumber={post.commentNumber}
-              />
-              <Separator className="m-3" />
+              <div key={key}>
+                <Post
+                  avatar={post.avatar}
+                  badgeBool={post.badgeBool}
+                  followBool={post.followBool}
+                  date={post.date}
+                  content={post.content}
+                  likeBool={post.likeBool}
+                  likeNumber={post.likeNumber}
+                  commentNumber={post.commentNumber}
+                />
+              </div>
+              {key != posts.length - 1 && <Separator className="m-3" />}
             </>
           ))}
         </div>
