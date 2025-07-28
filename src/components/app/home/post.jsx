@@ -33,7 +33,7 @@ export function Post({
             </Badge>
           )}
         </div>
-        <p className="ml-auto text-sidebar-ring">{date}</p>
+        <p className="ml-auto text-muted-foreground text-sm">{date}</p>
       </div>
       <p>{content}</p>
       <div className="flex gap-1">
