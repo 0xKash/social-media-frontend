@@ -22,7 +22,7 @@ export function InputHome({ avatar }) {
           id="message"
         />
       </div>
-      <Button type="submit" variant="outline" className="mt-auto">
+      <Button type="submit" className="mt-auto">
         Post
       </Button>
     </div>

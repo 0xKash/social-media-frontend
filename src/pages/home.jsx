@@ -1,5 +1,5 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Post } from "@/components/app/home/post";
 import { Separator } from "@/components/ui/separator";
 import { InputHome } from "@/components/app/home/input";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { UserFollow } from "@/components/app/home/userFollow";
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import { DialogHome } from "@/components/app/home/dialogHome";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState([]);
@@ -152,7 +153,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="bg-popover w-1/2 h-fit sticky max-xl:hidden rounded-lg p-5 border">
+      <div className="bg-popover w-1/2 h-fit sticky top-10 max-xl:hidden rounded-lg p-5 border">
         <h4 className="text-2xl font-semibold">Who to follow</h4>
         {users.map((user, key) => (
           <UserFollow
@@ -164,9 +165,8 @@ const Home = () => {
           />
         ))}
       </div>
-      <Button className="fixed size-15 bottom-6 right-4 sm:right-6 rounded-full shadow-md p-4 z-50 sm:hidden">
-        <Plus className="size-8" />
-      </Button>
+
+      <DialogHome avatar={userAvatar} />
     </main>
   );
 };
