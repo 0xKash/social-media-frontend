@@ -30,7 +30,7 @@ import { useNavigate } from "react-router-dom";
 export function NavUser({ user }) {
   const { isMobile } = useSidebar();
 
-  const handleLogOut = async () => {
+  const handleLogout = async () => {
     logoutUser();
     window.location.reload();
     location.pathname = "/login";
@@ -107,9 +107,9 @@ export function NavUser({ user }) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
-              <button onClick={handleLogOut}>Log out</button>
+              Log Out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
