@@ -15,7 +15,7 @@ export const getPosts = async () => {
 
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
@@ -39,6 +39,6 @@ export const createPost = async (content) => {
 
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };

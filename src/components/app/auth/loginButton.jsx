@@ -9,6 +9,7 @@ export function LoginButton() {
   const handleOnClick = async (e) => {
     try {
       await githubLoginUser();
+      location.pathname = "/home";
       navigate("/home");
     } catch (err) {
       console.error(err);

@@ -16,7 +16,7 @@ export const followUser = async (targetId) => {
 
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
@@ -34,7 +34,7 @@ export const unfollowUser = async (targetId) => {
 
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 

@@ -16,7 +16,7 @@ export const registerUser = async (username, password, confirmPassword) => {
     });
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
@@ -35,7 +35,7 @@ export const loginUser = async (username, password) => {
     });
     return await response.json();
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
