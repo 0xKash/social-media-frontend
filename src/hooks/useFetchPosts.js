@@ -11,10 +11,6 @@ export const useFetchPosts = () => {
     const fetchPosts = async () => {
       try {
         const { data } = await getPosts();
-
-        const date = new Date("2025-07-26T16:34:59.000Z");
-        console.log(date.getMonth());
-
         setPosts(transformPosts(data));
       } catch (err) {
         navigate("/login");

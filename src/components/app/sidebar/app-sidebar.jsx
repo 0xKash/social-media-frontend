@@ -9,16 +9,11 @@ import {
 } from "@/components/ui/sidebar";
 import { SidebarTitle } from "./sidebarTitle";
 import { SidebarMenuContent } from "./sidebarMenuContent";
+import { useFetchAuth } from "@/hooks/useFetchAuth";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {
-  // This is sample data.
-  const data = {
-    user: {
-      name: "0xKash",
-      githubBadge: true,
-      avatar: "https://github.com/shadcn.png",
-    },
-  };
+  const user = useFetchAuth();
+  console.log(user);
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -29,7 +24,7 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
         <SidebarMenuContent />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
