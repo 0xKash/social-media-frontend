@@ -12,7 +12,6 @@ export const useFetchAuth = () => {
     const fetchAuth = async () => {
       try {
         const { data } = await authUser();
-        console.log(data);
 
         setUser(transformUser(data));
         setIsLoading(false);

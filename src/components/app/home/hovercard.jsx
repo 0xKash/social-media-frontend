@@ -6,7 +6,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-export function HoverCardHome({ follow, username, joinedAt }) {
+export function HoverCardHome({ follow, username, joinedAt, avatar }) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -15,7 +15,7 @@ export function HoverCardHome({ follow, username, joinedAt }) {
       <HoverCardContent className="w-80">
         <div className="flex items-center gap-1">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarImage src={avatar} />
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
