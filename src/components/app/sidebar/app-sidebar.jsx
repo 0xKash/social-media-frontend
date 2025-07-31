@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/sidebar";
 import { SidebarTitle } from "./sidebarTitle";
 import { SidebarMenuContent } from "./sidebarMenuContent";
-import { useFetchAuth } from "@/hooks/useFetchAuth";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {
   return (
