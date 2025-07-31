@@ -4,16 +4,8 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 export function LoginButton() {
-  const navigate = useNavigate();
-
   const handleOnClick = async (e) => {
-    try {
-      await githubLoginUser();
-      location.pathname = "/home";
-      navigate("/home");
-    } catch (err) {
-      console.error(err);
-    }
+    githubLoginUser();
   };
 
   return (
