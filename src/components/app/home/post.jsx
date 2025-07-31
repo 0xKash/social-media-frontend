@@ -29,6 +29,7 @@ export function Post({
             follow={followBool}
             username={username}
             joinedAt={joinedAt}
+            avatar={avatar}
           />
           {badgeBool && (
             <Badge

@@ -12,6 +12,6 @@ export const transformUser = (apiUser) => {
     username: apiUser.username,
     avatar: apiUser.avatar ? apiUser.avatar : apiUser.photos[0].value,
     followBool: false,
-    badgeBool: apiUser.github_id ? true : false,
+    badgeBool: apiUser.nodeId ? true : false,
   };
 };
