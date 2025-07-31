@@ -9,7 +9,7 @@ const Home = () => {
   const userAvatar = "https://github.com/shadcn.png";
 
   return (
-    <main className="py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
+    <main className="w-full py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
       <div className="w-full h-fit flex flex-col gap-5">
         <InputHome avatar={userAvatar} />
         <MainPosts />
