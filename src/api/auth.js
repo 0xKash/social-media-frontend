@@ -1,3 +1,4 @@
+import { apiErrorHandler } from "@/lib/errorHandlers";
 const API_URL = process.env.API_URL;
 
 export const registerUser = async (username, password, confirmPassword) => {
@@ -40,4 +41,20 @@ export const loginUser = async (username, password) => {
 
 export const githubLoginUser = async () => {
   window.location.href = `${API_URL}/auth/github`;
+};
+
+export const authUser = async () => {
+  try {
+    const response = await fetch(`${API_URL}/auth`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
 };

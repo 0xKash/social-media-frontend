@@ -6,3 +6,12 @@ export const transformUsers = (apiUsers) => {
     badgeBool: user.github_id ? true : false,
   }));
 };
+
+export const transformUser = (apiUser) => {
+  return {
+    username: apiUser.username,
+    avatar: apiUser.avatar,
+    followBool: false,
+    badgeBool: apiUser.github_id ? true : false,
+  };
+};

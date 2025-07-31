@@ -24,7 +24,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Badge } from "../../ui/badge";
-
 export function NavUser({ user }) {
   const { isMobile } = useSidebar();
 
@@ -38,12 +37,12 @@ export function NavUser({ user }) {
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage src={user.avatar} alt={user.username} />
                 <AvatarFallback className="rounded-lg">KH</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold text-sm">
-                  {`@${user.name}`}
+                  {`@${user.username}`}
                 </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
@@ -58,13 +57,13 @@ export function NavUser({ user }) {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage src={user.avatar} alt={user.username} />
                   <AvatarFallback className="rounded-lg">KH</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold flex items-center gap-5">
-                    {`@${user.name}`}
-                    {user.githubBadge && (
+                    {`@${user.username}`}
+                    {user.badgeBool && (
                       <Badge
                         variant="default"
                         className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
