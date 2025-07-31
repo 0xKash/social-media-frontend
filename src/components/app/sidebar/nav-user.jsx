@@ -24,10 +24,17 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Badge } from "../../ui/badge";
+import { logoutUser } from "@/api/auth";
+import { useNavigate } from "react-router-dom";
 
-export function NavUser() {
+export function NavUser({ user }) {
   const { isMobile } = useSidebar();
-  const { user } = useFetchAuth();
+
+  const handleLogOut = async () => {
+    logoutUser();
+    window.location.reload();
+    location.pathname = "/login";
+  };
 
   return (
     <SidebarMenu>
@@ -102,7 +109,7 @@ export function NavUser() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />
-              Log out
+              <button onClick={handleLogOut}>Log out</button>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

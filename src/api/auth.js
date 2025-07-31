@@ -43,6 +43,20 @@ export const githubLoginUser = async () => {
   window.location.href = `${API_URL}/auth/github`;
 };
 
+export const logoutUser = async () => {
+  try {
+    const response = await fetch(`${API_URL}/auth/logout`, {
+      credentials: "include",
+    });
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const authUser = async () => {
   try {
     const response = await fetch(`${API_URL}/auth`, {
