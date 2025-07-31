@@ -22,6 +22,8 @@ export function LoginForm({ setError }) {
         return;
       }
 
+      location.pathname = "/home";
+      console.log(location.pathname);
       navigate("/home");
     } catch (err) {
       console.error(err);
