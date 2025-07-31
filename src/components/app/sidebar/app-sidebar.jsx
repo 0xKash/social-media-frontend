@@ -15,17 +15,19 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
   const { user, error } = useFetchAuth();
 
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <SidebarTitle />
-      </SidebarHeader>
-      <SidebarContent>
-        <SidebarMenuContent />
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={user} />
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
+    error && (
+      <Sidebar collapsible="icon" {...props}>
+        <SidebarHeader>
+          <SidebarTitle />
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarMenuContent />
+        </SidebarContent>
+        <SidebarFooter>
+          <NavUser user={user} />
+        </SidebarFooter>
+        <SidebarRail />
+      </Sidebar>
+    )
   );
 }
