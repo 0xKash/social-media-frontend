@@ -1,4 +1,5 @@
 // imports
+import { Separator } from "@/components/ui/separator";
 import { Post } from "./post";
 
 export function MainPosts() {
@@ -21,7 +22,10 @@ export function MainPosts() {
   return (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
       {posts.map((post, key) => (
-        <div key={key}>
+        <div
+          key={key}
+          className="w-full flex flex-col items-center justify-center"
+        >
           <Post
             username={post.username}
             joinedAt={post.joinedAt}
