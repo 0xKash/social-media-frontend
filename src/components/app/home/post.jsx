@@ -18,7 +18,7 @@ export function Post({
   joinedAt,
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-full">
       <div className=" flex gap-3 items-center w-full h-fit">
         <div className="flex items-center">
           <Avatar className=" rounded-lg">
