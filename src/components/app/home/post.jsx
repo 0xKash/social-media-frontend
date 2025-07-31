@@ -34,7 +34,7 @@ export function Post({
           {badgeBool && (
             <Badge
               variant="default"
-              className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
+              className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm ml-2"
             >
               <BadgeCheckIcon />
               Github
