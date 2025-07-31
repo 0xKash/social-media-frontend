@@ -43,8 +43,17 @@ export function NavUser() {
                 <AvatarFallback className="rounded-lg">KH</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold text-sm">
+                <span className="truncate font-semibold text-sm flex items-center gap-5">
                   {`@${user.username}`}
+                  {user.badgeBool && (
+                    <Badge
+                      variant="default"
+                      className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
+                    >
+                      <BadgeCheckIcon />
+                      Github
+                    </Badge>
+                  )}
                 </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />

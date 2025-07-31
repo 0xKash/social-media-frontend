@@ -15,7 +15,7 @@ export function UserFollow({ username, avatar, followBool, badgeBool }) {
       {badgeBool && (
         <Badge
           variant="default"
-          className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
+          className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm ml-3"
         >
           <BadgeCheckIcon />
           Github

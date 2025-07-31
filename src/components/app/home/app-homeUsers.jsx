@@ -3,7 +3,7 @@ import { useFetchUsers } from "@/hooks/useFetchUsers";
 import { UserFollow } from "./userFollow";
 
 export function HomeUsers() {
-  const users = useFetchUsers();
+  const { users } = useFetchUsers();
 
   return (
     <div className="bg-popover w-1/2 h-fit sticky top-10 max-xl:hidden rounded-lg p-5 border">
