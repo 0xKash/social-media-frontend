@@ -15,3 +15,7 @@ export const loginErrorHandler = (error) => {
   if (error.status === "error")
     return "The username or password you entered is incorrect";
 };
+
+export const apiErrorHandler = (error) => {
+  if (error.statusCode === 401) throw error;
+};
