@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export const useFetchPosts = () => {
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,14 +15,16 @@ export const useFetchPosts = () => {
       try {
         const { data } = await getPosts();
         setPosts(transformPosts(data));
+        setIsLoading(false);
       } catch (err) {
         navigate("/login");
-        console.error(err);
+        setError(err);
+        setIsLoading(false);
       }
     };
 
     fetchPosts();
   }, []);
 
-  return { posts };
+  return { posts, error, isLoading };
 };

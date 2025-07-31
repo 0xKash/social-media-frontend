@@ -5,6 +5,8 @@ import { transformUsers } from "@/lib/transfromUsers";
 
 export const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,14 +17,15 @@ export const useFetchUsers = () => {
         const { data } = await getUsers(limit);
 
         setUsers(transformUsers(data));
+        setIsLoading(false);
       } catch (err) {
         navigate("/login");
-        console.error(err);
+        setError(err);
       }
     };
 
     fetchUsers();
   }, []);
 
-  return users;
+  return { users, error, isLoading };
 };
