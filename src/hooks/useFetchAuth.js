@@ -5,21 +5,25 @@ import { useNavigate } from "react-router-dom";
 
 export const useFetchAuth = () => {
   const [user, setUser] = useState([]);
+  const [error, setError] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchAuth = async () => {
       try {
-        const data = await authUser();
-
+        const { data } = await authUser();
         console.log(data);
+
         setUser(transformUser(data));
+        setIsLoading(false);
       } catch (err) {
-        console.error(err);
+        setError(err);
+        setIsLoading(false);
       }
     };
 
     fetchAuth();
   }, []);
 
-  return user;
+  return { user, error, isLoading };
 };

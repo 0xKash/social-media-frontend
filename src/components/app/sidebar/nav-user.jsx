@@ -6,7 +6,7 @@ import {
   BadgeCheckIcon,
   Settings,
 } from "lucide-react";
-
+import { useFetchAuth } from "@/hooks/useFetchAuth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -24,8 +24,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Badge } from "../../ui/badge";
-export function NavUser({ user }) {
+
+export function NavUser() {
   const { isMobile } = useSidebar();
+  const { user } = useFetchAuth();
 
   return (
     <SidebarMenu>

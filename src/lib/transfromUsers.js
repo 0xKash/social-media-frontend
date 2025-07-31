@@ -10,7 +10,7 @@ export const transformUsers = (apiUsers) => {
 export const transformUser = (apiUser) => {
   return {
     username: apiUser.username,
-    avatar: apiUser.avatar,
+    avatar: apiUser.avatar ? apiUser.avatar : apiUser.photos[0].value,
     followBool: false,
     badgeBool: apiUser.github_id ? true : false,
   };
