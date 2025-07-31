@@ -53,7 +53,7 @@ export function Post({
           ) : (
             <Button className="w-fit" variant="ghost">
               <Heart />
-              <p className="text-xs">267</p>
+              <p className="text-xs">{likeNumber}</p>
             </Button>
           )}
         </div>

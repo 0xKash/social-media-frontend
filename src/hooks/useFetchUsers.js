@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "@/api/user";
+import { transformUsers } from "@/lib/transfromUsers";
 
 export const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +14,7 @@ export const useFetchUsers = () => {
       try {
         const { data } = await getUsers(limit);
 
-        setUsers(data);
+        setUsers(transformUsers(data));
       } catch (err) {
         navigate("/login");
         console.error(err);
