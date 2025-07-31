@@ -9,23 +9,23 @@ import {
 } from "@/components/ui/sidebar";
 import { SidebarTitle } from "./sidebarTitle";
 import { SidebarMenuContent } from "./sidebarMenuContent";
+import { useFetchAuth } from "@/hooks/useFetchAuth";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {
+  const { user, error } = useFetchAuth();
+
   return (
-    location.pathname != "/login" &&
-    location.pathname != "/register" && (
-      <Sidebar collapsible="icon" {...props}>
-        <SidebarHeader>
-          <SidebarTitle />
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenuContent />
-        </SidebarContent>
-        <SidebarFooter>
-          <NavUser />
-        </SidebarFooter>
-        <SidebarRail />
-      </Sidebar>
-    )
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <SidebarTitle />
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarMenuContent />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={user} />
+      </SidebarFooter>
+      <SidebarRail />
+    </Sidebar>
   );
 }

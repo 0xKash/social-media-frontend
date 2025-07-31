@@ -9,7 +9,6 @@ export const getPosts = async () => {
     });
 
     if (!response.ok) {
-      console.log(response);
       apiErrorHandler(await response.json());
     }
 

@@ -45,7 +45,6 @@ export const getUsers = async (limit) => {
     });
 
     if (!response.ok) {
-      console.log(response);
       apiErrorHandler(await response.json());
     }
 
