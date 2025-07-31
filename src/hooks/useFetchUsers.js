@@ -7,9 +7,11 @@ export const useFetchUsers = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const limit = 5;
+
     const fetchUsers = async () => {
       try {
-        const { data } = await getUsers(5);
+        const { data } = await getUsers(limit);
 
         setUsers(data);
       } catch (err) {
