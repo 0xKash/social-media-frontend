@@ -1,43 +1,19 @@
 // imports
 import { Separator } from "@/components/ui/separator";
 import { Post } from "./post";
+import { useFetchPosts } from "@/hooks/useFetchPosts";
 
 export function MainPosts() {
-  const posts = [
-    {
-      username: "0xKash",
-      joinedAt: "December 2024",
-      avatar: "https://github.com/shadcn.png",
-      content:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnisdis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massaquis enim.",
-      date: "7/27/2025",
-      badgeBool: true,
-      followBool: true,
-      likeBool: true,
-      likeNumber: "267",
-      commentNumber: "26",
-    },
-  ];
+  const { posts } = useFetchPosts();
 
   return (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
       {posts.map((post, key) => (
         <div
           key={key}
-          className="w-full flex flex-col items-center justify-center"
+          className="w-full  flex flex-col items-center justify-center"
         >
-          <Post
-            username={post.username}
-            joinedAt={post.joinedAt}
-            avatar={post.avatar}
-            badgeBool={post.badgeBool}
-            followBool={post.followBool}
-            date={post.date}
-            content={post.content}
-            likeBool={post.likeBool}
-            likeNumber={post.likeNumber}
-            commentNumber={post.commentNumber}
-          />
+          <Post {...post} />
           {key != posts.length - 1 && <Separator className="m-3" />}
         </div>
       ))}
