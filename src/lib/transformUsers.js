@@ -1,4 +1,6 @@
 export const transformUsers = (apiUsers) => {
+  console.log(apiUsers);
+
   return apiUsers.map((user) => ({
     username: user.username,
     avatar: user.avatar,
