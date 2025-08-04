@@ -32,7 +32,6 @@ export const createPost = async (content) => {
     });
 
     if (!response.ok) {
-      console.log(response);
       apiErrorHandler(await response.json());
     }
 

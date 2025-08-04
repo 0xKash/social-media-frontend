@@ -3,8 +3,17 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { createPost } from "@/api/post";
+import { useState } from "react";
 
 export function InputHome({ avatar }) {
+  const [content, setContent] = useState([]);
+
+  const handleSubmit = async () => {
+    await createPost(content);
+    window.location.reload();
+  };
+
   return (
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg border p-5 max-sm:hidden">
       <Avatar className="lg:size-20 rounded-lg">
@@ -12,7 +21,11 @@ export function InputHome({ avatar }) {
         <AvatarFallback>KH</AvatarFallback>
       </Avatar>
 
-      <div className="grid w-full gap-3">
+      <form
+        className="grid w-full gap-3"
+        id="text-area"
+        onSubmit={handleSubmit}
+      >
         <Label htmlFor="message">Post something</Label>
         <Textarea
           className="w-full max-w-full h-full max-h-full resize-none overflow-x-hidden break-all"
@@ -20,9 +33,12 @@ export function InputHome({ avatar }) {
           placeholder="What's happening?"
           maxLength="240"
           id="message"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
         />
-      </div>
-      <Button type="submit" className="mt-auto">
+      </form>
+      <Button type="submit" form="text-area" className="mt-auto">
         Post
       </Button>
     </div>
