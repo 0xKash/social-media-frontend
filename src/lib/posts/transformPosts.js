@@ -1,4 +1,4 @@
-import { dateToText, formatDate } from "./utils";
+import { dateToText, formatDate } from "@/lib/utils/utils";
 
 export const transformPosts = (apiPosts) => {
   return apiPosts.map((post) => ({

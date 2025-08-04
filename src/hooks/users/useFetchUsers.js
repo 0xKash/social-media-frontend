@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "@/api/user";
-import { transformUsers } from "@/lib/transformUsers";
+import { transformUsers } from "@/lib/users/transformUsers";
 
 export const useFetchUsers = () => {
   const [users, setUsers] = useState([]);

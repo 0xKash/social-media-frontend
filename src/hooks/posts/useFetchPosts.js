@@ -1,5 +1,5 @@
 import { getPosts } from "@/api/post";
-import { transformPosts } from "@/lib/transformPosts";
+import { transformPosts } from "@/lib/posts/transformPosts";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -2,7 +2,7 @@
 import { registerUser } from "@/api/auth";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { registerErrorHandler } from "@/lib/errorHandlers";
+import { registerErrorHandler } from "@/lib/handlers/error";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

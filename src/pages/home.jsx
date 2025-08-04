@@ -3,7 +3,7 @@ import { InputHome } from "@/components/app/home/input";
 import { DialogHome } from "@/components/app/home/dialogHome";
 import { MainPosts } from "@/components/app/home/app-mainPosts";
 import { HomeUsers } from "@/components/app/home/app-homeUsers";
-import { useFetchAuth } from "@/hooks/useFetchAuth";
+import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
 
 const Home = () => {
   // sample data
