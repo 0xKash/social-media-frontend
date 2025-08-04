@@ -1,5 +1,5 @@
 import { authUser } from "@/api/auth";
-import { transformUser } from "@/lib/transfromUsers";
+import { transformUser } from "@/lib/transformUsers";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

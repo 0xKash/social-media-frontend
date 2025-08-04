@@ -3,8 +3,30 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
+import { useState } from "react";
+import { followUser, unfollowUser } from "@/api/user";
 
-export function UserFollow({ username, avatar, followBool, badgeBool }) {
+export function UserFollow({
+  username,
+  avatar,
+  followBool,
+  badgeBool,
+  targetId,
+}) {
+  const [follow, setFollow] = useState(followBool);
+
+  const handleFollow = async () => {
+    await followUser(targetId);
+    setFollow(true);
+    console.log("followed");
+  };
+
+  const handleUnfollow = async () => {
+    await unfollowUser(targetId);
+    setFollow(false);
+    console.log("unfollowed");
+  };
+
   return (
     <div className="my-5 flex items-center gap-2">
       <Avatar className="size-15 rounded-lg">
@@ -21,12 +43,14 @@ export function UserFollow({ username, avatar, followBool, badgeBool }) {
           Github
         </Badge>
       )}
-      {followBool ? (
-        <Button className="ml-auto" variant="ghost" disabled>
+      {follow ? (
+        <Button className="ml-auto" variant="ghost" onClick={handleUnfollow}>
           Following
         </Button>
       ) : (
-        <Button className="ml-auto">Follow</Button>
+        <Button className="ml-auto" onClick={handleFollow}>
+          Follow
+        </Button>
       )}
     </div>
   );
