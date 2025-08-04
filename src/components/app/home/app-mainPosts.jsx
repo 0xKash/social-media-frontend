@@ -1,7 +1,7 @@
 // imports
 import { Separator } from "@/components/ui/separator";
 import { Post } from "./post";
-import { useFetchPosts } from "@/hooks/useFetchPosts";
+import { useFetchPosts } from "@/hooks/posts/useFetchPosts";
 
 export function MainPosts() {
   const { posts } = useFetchPosts();

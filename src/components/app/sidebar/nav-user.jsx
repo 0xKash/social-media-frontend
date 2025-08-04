@@ -6,7 +6,7 @@ import {
   BadgeCheckIcon,
   Settings,
 } from "lucide-react";
-import { useFetchAuth } from "@/hooks/useFetchAuth";
+import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
