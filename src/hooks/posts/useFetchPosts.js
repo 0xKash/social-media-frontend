@@ -15,6 +15,7 @@ export const useFetchPosts = (userId) => {
       try {
         const { data } = await getPosts();
         setPosts(transformPosts(data, userId));
+
         setIsLoading(false);
       } catch (err) {
         navigate("/login");
@@ -24,7 +25,7 @@ export const useFetchPosts = (userId) => {
     };
 
     fetchPosts();
-  }, []);
+  }, [userId]);
 
   return { posts, error, isLoading };
 };
