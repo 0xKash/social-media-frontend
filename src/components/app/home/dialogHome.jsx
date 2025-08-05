@@ -12,10 +12,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { createPost } from "@/api/post";
 
 export function DialogHome({ avatar }) {
+  const [content, setContent] = useState([]);
+
+  const handleSubmit = async () => {
+    await createPost(content);
+    window.location.reload();
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -31,25 +39,29 @@ export function DialogHome({ avatar }) {
           </Avatar>
           <DialogTitle className="w-fit h-fit">New post</DialogTitle>
         </DialogHeader>
-        <div className="flex items-center gap-2 h-full ">
-          <Label htmlFor="link" className="sr-only">
-            Link
-          </Label>
+        <form
+          id="dialog-form"
+          className="flex items-center gap-2 h-full"
+          onSubmit={handleSubmit}
+        >
           <Textarea
-            id="link"
-            className="w-full max-w-full h-full  resize-none overflow-hidden break-all"
+            className="w-full max-w-full h-full resize-none overflow-hidden break-all"
             resize="none"
             placeholder="What's happening?"
             maxLength="240"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
-        </div>
+        </form>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
             <Button type="button" variant="secondary">
               Close
             </Button>
           </DialogClose>
-          <Button type="button">Post</Button>
+          <Button type="submit" form="dialog-form">
+            Post
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
