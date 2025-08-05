@@ -17,6 +17,7 @@ export function Post({
   commentNumber,
   username,
   joinedAt,
+  userId,
 }) {
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -32,6 +33,7 @@ export function Post({
             joinedAt={joinedAt}
             avatar={avatar}
             targetId={id}
+            userId={userId}
           />
           {badgeBool && (
             <Badge
