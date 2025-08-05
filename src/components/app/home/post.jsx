@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, MessageSquare, BadgeCheckIcon } from "lucide-react";
 
 export function Post({
+  id,
   avatar,
   badgeBool,
   date,
@@ -26,10 +27,11 @@ export function Post({
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
           <HoverCardHome
-            follow={followBool}
+            followBool={followBool}
             username={username}
             joinedAt={joinedAt}
             avatar={avatar}
+            targetId={id}
           />
           {badgeBool && (
             <Badge
