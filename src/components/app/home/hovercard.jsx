@@ -7,7 +7,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function HoverCardHome({
   followBool,
@@ -19,16 +19,18 @@ export function HoverCardHome({
 }) {
   const [follow, setFollow] = useState(followBool);
 
+  useEffect(() => {
+    setFollow(followBool);
+  }, [followBool]);
+
   const handleFollow = async () => {
     await followUser(targetId);
     setFollow(true);
-    console.log("followed");
   };
 
   const handleUnfollow = async () => {
     await unfollowUser(targetId);
     setFollow(false);
-    console.log("unfollowed");
   };
 
   return (
