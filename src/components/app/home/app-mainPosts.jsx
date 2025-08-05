@@ -3,8 +3,8 @@ import { Separator } from "@/components/ui/separator";
 import { Post } from "./post";
 import { useFetchPosts } from "@/hooks/posts/useFetchPosts";
 
-export function MainPosts() {
-  const { posts } = useFetchPosts();
+export function MainPosts({ userId }) {
+  const { posts } = useFetchPosts(userId);
 
   return (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">

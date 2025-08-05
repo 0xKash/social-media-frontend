@@ -1,4 +1,5 @@
 // imports
+import { followUser, unfollowUser } from "@/api/user";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,7 +7,29 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-export function HoverCardHome({ follow, username, joinedAt, avatar }) {
+import { useState } from "react";
+
+export function HoverCardHome({
+  followBool,
+  username,
+  joinedAt,
+  avatar,
+  targetId,
+}) {
+  const [follow, setFollow] = useState(followBool);
+
+  const handleFollow = async () => {
+    await followUser(targetId);
+    setFollow(true);
+    console.log("followed");
+  };
+
+  const handleUnfollow = async () => {
+    await unfollowUser(targetId);
+    setFollow(false);
+    console.log("unfollowed");
+  };
+
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -25,11 +48,17 @@ export function HoverCardHome({ follow, username, joinedAt, avatar }) {
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
           </div>
           {follow ? (
-            <Button className="ml-auto" variant="ghost" disabled>
+            <Button
+              className="ml-auto"
+              variant="ghost"
+              onClick={handleUnfollow}
+            >
               Following
             </Button>
           ) : (
-            <Button className="ml-auto">Follow</Button>
+            <Button className="ml-auto" onClick={handleFollow}>
+              Follow
+            </Button>
           )}
         </div>
       </HoverCardContent>
