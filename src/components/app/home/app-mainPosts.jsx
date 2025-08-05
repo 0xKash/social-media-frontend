@@ -13,7 +13,7 @@ export function MainPosts({ userId }) {
           key={key}
           className="w-full  flex flex-col items-center justify-center"
         >
-          <Post {...post} />
+          <Post {...post} userId={userId} />
           {key != posts.length - 1 && <Separator className="m-3" />}
         </div>
       ))}

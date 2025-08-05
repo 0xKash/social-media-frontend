@@ -15,6 +15,7 @@ export function HoverCardHome({
   joinedAt,
   avatar,
   targetId,
+  userId,
 }) {
   const [follow, setFollow] = useState(followBool);
 
@@ -47,19 +48,20 @@ export function HoverCardHome({
             </a>
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
           </div>
-          {follow ? (
-            <Button
-              className="ml-auto"
-              variant="ghost"
-              onClick={handleUnfollow}
-            >
-              Following
-            </Button>
-          ) : (
-            <Button className="ml-auto" onClick={handleFollow}>
-              Follow
-            </Button>
-          )}
+          {userId != targetId &&
+            (follow ? (
+              <Button
+                className="ml-auto"
+                variant="ghost"
+                onClick={handleUnfollow}
+              >
+                Following
+              </Button>
+            ) : (
+              <Button className="ml-auto" onClick={handleFollow}>
+                Follow
+              </Button>
+            ))}
         </div>
       </HoverCardContent>
     </HoverCard>
