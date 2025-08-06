@@ -8,10 +8,11 @@ export const transformPosts = (apiPosts, userId) => {
     avatar: post.author.avatar,
     badgeBool: post.author.github_id ? true : false,
     followBool: post.author.followedBy.some((follow) => follow.id === userId),
+    postId: post.id,
     date: formatDate(new Date(post.createdAt)),
     content: post.content,
-    likeBool: false,
-    likeNumber: 0,
+    likeBool: post.likedBy.some((like) => like.id === userId),
+    likeNumber: post._count.likedBy,
     commentNumber: 0,
   }));
 };
