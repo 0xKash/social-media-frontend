@@ -14,7 +14,7 @@ import { Plus } from "lucide-react";
 
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { createPost } from "@/api/post";
+import { createPost } from "@/api/posts/post";
 
 export function DialogHome({ avatar }) {
   const [content, setContent] = useState([]);

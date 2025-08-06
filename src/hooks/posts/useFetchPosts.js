@@ -1,4 +1,4 @@
-import { getPosts } from "@/api/post";
+import { getPosts } from "@/api/posts/post";
 import { transformPosts } from "@/lib/posts/transformPosts";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

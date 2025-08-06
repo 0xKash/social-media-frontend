@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { useState } from "react";
-import { followUser, unfollowUser } from "@/api/user";
+import { followUser, unfollowUser } from "@/api/users/follow";
 
 export function UserFollow({
   username,

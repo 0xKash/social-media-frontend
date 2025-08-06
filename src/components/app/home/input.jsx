@@ -3,7 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { createPost } from "@/api/post";
+import { createPost } from "@/api/posts/post";
 import { useState } from "react";
 
 export function InputHome({ avatar }) {

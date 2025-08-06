@@ -24,7 +24,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Badge } from "../../ui/badge";
-import { logoutUser } from "@/api/auth";
+import { logoutUser } from "@/api/auth/auth";
 import { useNavigate } from "react-router-dom";
 
 export function NavUser({ user }) {
