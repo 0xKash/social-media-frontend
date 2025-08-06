@@ -1,5 +1,5 @@
 // imports
-import { followUser, unfollowUser } from "@/api/user";
+import { followUser, unfollowUser } from "@/api/users/follow";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {

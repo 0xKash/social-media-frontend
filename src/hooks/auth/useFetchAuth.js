@@ -1,4 +1,4 @@
-import { authUser } from "@/api/auth";
+import { authUser } from "@/api/auth/auth";
 import { transformUser } from "@/lib/users/transformUsers";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

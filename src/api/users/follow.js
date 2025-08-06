@@ -37,19 +37,3 @@ export const unfollowUser = async (targetId) => {
     throw err;
   }
 };
-
-export const getUsers = async (limit) => {
-  try {
-    const response = await fetch(`${API_URL}/users?limit=${limit}`, {
-      credentials: "include",
-    });
-
-    if (!response.ok) {
-      apiErrorHandler(await response.json());
-    }
-
-    return await response.json();
-  } catch (err) {
-    throw err;
-  }
-};

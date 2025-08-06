@@ -1,5 +1,5 @@
 // imports
-import { registerUser } from "@/api/auth";
+import { registerUser } from "@/api/auth/auth";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerErrorHandler } from "@/lib/handlers/error";
