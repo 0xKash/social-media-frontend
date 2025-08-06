@@ -4,6 +4,7 @@ import { HoverCardHome } from "@/components/app/home/posts/hovercard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, MessageSquare, BadgeCheckIcon } from "lucide-react";
+import { PostButtons } from "./postButtons";
 
 export function Post({
   id,
@@ -18,6 +19,7 @@ export function Post({
   username,
   joinedAt,
   userId,
+  postId,
 }) {
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -48,27 +50,12 @@ export function Post({
         <p className="ml-auto text-muted-foreground text-sm">{date}</p>
       </div>
       <p>{content}</p>
-      <div className="flex gap-1">
-        <div className="flex items-center">
-          {likeBool ? (
-            <Button className="w-fit" variant="ghost">
-              <Heart color="#FF0000" fill="#FF0000" />
-              <p className="text-[#FF0000] text-xs">{likeNumber}</p>
-            </Button>
-          ) : (
-            <Button className="w-fit" variant="ghost">
-              <Heart />
-              <p className="text-xs">{likeNumber}</p>
-            </Button>
-          )}
-        </div>
-        <div className="flex items-center">
-          <Button className="w-fit" variant="ghost">
-            <MessageSquare />
-            <p className="text-xs">{commentNumber}</p>
-          </Button>
-        </div>
-      </div>
+      <PostButtons
+        likeBool={likeBool}
+        likeNumber={likeNumber}
+        commentNumber={commentNumber}
+        postId={postId}
+      />
     </div>
   );
 }
