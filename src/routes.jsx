@@ -1,6 +1,7 @@
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
+import Post from "./pages/post";
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/post/:postId",
+    element: <Post />,
   },
 ];
 
