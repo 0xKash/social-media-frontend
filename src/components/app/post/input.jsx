@@ -12,7 +12,7 @@ export function InputComment({ avatar }) {
       </Avatar>
       <form action="" className="flex flex-col gap-2 w-full">
         <Label htmlFor="comment">Comment something</Label>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Input
             className=""
             placeholder="What do you think?"
