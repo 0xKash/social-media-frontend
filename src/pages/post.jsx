@@ -1,7 +1,7 @@
-import { MainComments } from "@/components/app/post/app-mainComments";
-import { FeaturedUsers } from "@/components/app/post/featuredUsers";
-import { InputComment } from "@/components/app/post/input";
-import { PostDisplay } from "@/components/app/post/postDisplay";
+import { MainComments } from "@/components/app/post/comments/app-mainComments";
+import { FeaturedUsers } from "@/components/app/post/users/featuredUsers";
+import { InputComment } from "@/components/app/post/input/input";
+import { PostDisplay } from "@/components/app/post/posts/postDisplay";
 
 const Post = () => {
   return (
