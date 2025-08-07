@@ -1,3 +1,4 @@
+import { MainComments } from "@/components/app/post/app-mainComments";
 import { FeaturedUsers } from "@/components/app/post/featuredUsers";
 import { InputComment } from "@/components/app/post/input";
 import { PostDisplay } from "@/components/app/post/postDisplay";
@@ -8,6 +9,7 @@ const Post = () => {
       <div className="w-full h-fit flex flex-col gap-5">
         <PostDisplay />
         <InputComment />
+        <MainComments />
       </div>
       <FeaturedUsers />
     </main>
