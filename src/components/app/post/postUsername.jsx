@@ -16,12 +16,14 @@ export function PostUsername({
   handleUnfollow,
 }) {
   return (
-    <HoverCard className="border">
-      <HoverCardTrigger asChild>
-        <Button variant="link" className="">
-          <h1 className="text-xl">@Kash</h1>
-        </Button>
-      </HoverCardTrigger>
+    <HoverCard>
+      <div className="flex  items-center gap-0">
+        <HoverCardTrigger asChild>
+          <Button variant="link">
+            <h1 className="text-xl">@Kash</h1>
+          </Button>
+        </HoverCardTrigger>
+      </div>
       <HoverCardContent className="w-80">
         <div className="flex items-center gap-1">
           <Avatar>
@@ -32,6 +34,7 @@ export function PostUsername({
             <a className="text-sm font-semibold" href="#">
               {`@${username}`}
             </a>
+
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
           </div>
           {userId != targetId &&
