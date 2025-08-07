@@ -1,8 +1,8 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { HoverCardHome } from "../home/posts/hovercard";
-import { Badge, BadgeCheckIcon } from "lucide-react";
+
 import { PostUsername } from "./postUsername";
 import { PostContent } from "./postContent";
+import { PostButtons } from "./postButtons";
 
 export function PostDisplay({
   username,
@@ -22,6 +22,7 @@ export function PostDisplay({
       <div className=" size-full">
         <PostUsername />
         <PostContent />
+        <PostButtons />
       </div>
     </div>
   );
