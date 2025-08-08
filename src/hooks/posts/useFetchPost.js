@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const useFetchPost = (userId) => {
+  const params = useParams();
+  const navigate = useNavigate();
+
   const [post, setPost] = useState([]);
   const [comments, setComments] = useState([]);
   const [error, setError] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const params = useParams();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -19,8 +19,8 @@ export const useFetchPost = (userId) => {
         const { data } = await getPost(params.postId);
 
         setPost(transformPost(data, userId));
-
         setComments(transformComments(data.comments, userId));
+
         setIsLoading(false);
       } catch (err) {
         console.log(err);

@@ -18,13 +18,11 @@ export function UserFollow({
   const handleFollow = async () => {
     await followUser(targetId);
     setFollow(true);
-    console.log("followed");
   };
 
   const handleUnfollow = async () => {
     await unfollowUser(targetId);
     setFollow(false);
-    console.log("unfollowed");
   };
 
   return (
