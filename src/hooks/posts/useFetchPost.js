@@ -1,6 +1,6 @@
 import { getPost } from "@/api/posts/post";
-import { transformComments } from "@/lib/comments/transformComments";
-import { transformPost } from "@/lib/posts/transformPosts";
+import { transformComments } from "@/lib/handlers/data/comments/transformComments";
+import { transformPost } from "@/lib/handlers/data/posts/transformPosts";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 

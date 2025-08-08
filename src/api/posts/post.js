@@ -1,4 +1,4 @@
-import { apiErrorHandler } from "@/lib/handlers/error";
+import { apiErrorHandler } from "@/lib/handlers/error/error";
 
 const API_URL = process.env.API_URL;
 
