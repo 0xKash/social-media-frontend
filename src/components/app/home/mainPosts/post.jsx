@@ -1,9 +1,8 @@
 // imports
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { HoverCardHome } from "@/components/app/home/posts/hovercard";
+import { HoverCardHome } from "@/components/app/home/mainPosts/hovercard";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Heart, MessageSquare, BadgeCheckIcon } from "lucide-react";
+import { BadgeCheckIcon } from "lucide-react";
 import { PostButtons } from "./postButtons";
 
 export function Post({
