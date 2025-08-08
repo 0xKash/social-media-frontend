@@ -1,8 +1,8 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
-import { PostUsername } from "@/components/app/post/posts/postUsername";
-import { PostContent } from "@/components/app/post/posts/postContent";
-import { PostButtons } from "@/components/app/post/posts/postButtons";
+import { PostUsername } from "@/components/post/postUsername";
+import { PostContent } from "@/components/post/postContent";
+import { PostButtons } from "@/components/post/postButtons";
 
 export function PostDisplay({
   username,

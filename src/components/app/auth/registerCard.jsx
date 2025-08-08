@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { RegisterForm } from "./registerForm";
+import { RegisterForm } from "@/components/auth/registerForm";
 
 export function RegisterCard() {
   return (

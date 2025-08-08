@@ -1,5 +1,4 @@
-import { transformComments } from "@/lib/handlers/data/comments/transformComments";
-import { Comment } from "./comment";
+import { Comment } from "@/components/post/comment";
 import { Separator } from "@/components/ui/separator";
 
 export function MainComments({ comments, userId }) {

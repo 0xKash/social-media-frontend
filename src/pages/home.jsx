@@ -1,8 +1,8 @@
 // imports
-import { InputHome } from "@/components/app/home/inputs/app-inputHome";
-import { DialogHome } from "@/components/app/home/inputs/app-dialogHome";
-import { MainPosts } from "@/components/app/home/mainPosts/app-mainPosts";
-import { HomeUsers } from "@/components/app/home/featuredUsers/app-homeUsers";
+import { InputHome } from "@/components/app/home/inputHome";
+import { DialogHome } from "@/components/app/home/dialogHome";
+import { MainPosts } from "@/components/app/home/mainPosts";
+import { HomeUsers } from "@/components/app/home/homeUsers";
 import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
 
 const Home = () => {

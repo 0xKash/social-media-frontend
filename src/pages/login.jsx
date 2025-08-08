@@ -1,6 +1,6 @@
 // imports
 import { Toaster } from "sonner";
-import { AuthTitle } from "@/components/app/auth/authTitle";
+import { AuthTitle } from "@/components/auth/common/app-authTitle";
 import { LoginCard } from "@/components/app/auth/loginCard";
 
 function Login() {

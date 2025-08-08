@@ -1,19 +1,24 @@
+// imports
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { HoverCardHome } from "@/components/app/home/mainPosts/hovercard";
+import { HoverCardHome } from "@/components/home/hovercard";
 import { Badge } from "@/components/ui/badge";
-
 import { BadgeCheckIcon } from "lucide-react";
+import { PostButtons } from "./postButtons";
 
-export function Comment({
+export function Post({
   id,
   avatar,
   badgeBool,
   date,
   content,
+  likeBool,
   followBool,
+  likeNumber,
+  commentNumber,
   username,
   joinedAt,
   userId,
+  postId,
 }) {
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -44,6 +49,12 @@ export function Comment({
         <p className="ml-auto text-muted-foreground text-sm">{date}</p>
       </div>
       <p>{content}</p>
+      <PostButtons
+        likeBool={likeBool}
+        likeNumber={likeNumber}
+        commentNumber={commentNumber}
+        postId={postId}
+      />
     </div>
   );
 }

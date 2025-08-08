@@ -1,6 +1,6 @@
 // imports
 import { useFetchUsers } from "@/hooks/users/useFetchUsers";
-import { UserFollow } from "@/components/app/home/featuredUsers/userFollow";
+import { UserFollow } from "@/components/home/userFollow";
 
 export function HomeUsers() {
   const { users } = useFetchUsers();
