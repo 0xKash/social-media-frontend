@@ -1,4 +1,4 @@
-import { transformComments } from "@/lib/comments/transformComments";
+import { transformComments } from "@/lib/handlers/data/comments/transformComments";
 import { Comment } from "./comment";
 import { Separator } from "@/components/ui/separator";
 
