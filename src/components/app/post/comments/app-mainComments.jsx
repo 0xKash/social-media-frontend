@@ -1,3 +1,4 @@
+import { transformComments } from "@/lib/comments/transformComments";
 import { Comment } from "./comment";
 import { Separator } from "@/components/ui/separator";
 
@@ -11,7 +12,11 @@ export function MainComments({ comments, userId }) {
             key={key}
             className="w-full  flex flex-col items-center justify-center"
           >
-            <Comment {...comment} userId={userId} />
+            <Comment
+              {...comment}
+              followBool={comment.followBool}
+              userId={userId}
+            />
             {key != comments.length - 1 && <Separator className="m-3" />}
           </div>
         ))}

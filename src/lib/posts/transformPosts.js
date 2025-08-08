@@ -18,8 +18,6 @@ export const transformPosts = (apiPosts, userId) => {
 };
 
 export const transformPost = (apiPost, userId) => {
-  console.log(apiPost);
-
   return {
     id: apiPost.authorId,
     username: apiPost.author.username,
