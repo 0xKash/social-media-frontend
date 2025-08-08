@@ -31,7 +31,7 @@ export const useFetchPost = (userId) => {
     };
 
     fetchPost();
-  }, []);
+  }, [userId]);
 
   return { post, comments, error, isLoading };
 };
