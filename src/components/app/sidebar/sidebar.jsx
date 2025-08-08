@@ -9,25 +9,24 @@ import {
 } from "@/components/ui/sidebar";
 import { SidebarTitle } from "../../sidebar/sidebarTitle";
 import { SidebarMenuContent } from "../../sidebar/sidebarMenuContent";
-import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
+import { UserContext } from "@/App";
+import { useContext } from "react";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {
-  const { user, error } = useFetchAuth();
+  const user = useContext(UserContext);
 
   return (
-    error && (
-      <Sidebar collapsible="icon" {...props}>
-        <SidebarHeader>
-          <SidebarTitle />
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenuContent />
-        </SidebarContent>
-        <SidebarFooter>
-          <NavUser user={user} />
-        </SidebarFooter>
-        <SidebarRail />
-      </Sidebar>
-    )
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <SidebarTitle />
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarMenuContent />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={user} />
+      </SidebarFooter>
+      <SidebarRail />
+    </Sidebar>
   );
 }

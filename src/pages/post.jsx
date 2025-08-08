@@ -3,10 +3,11 @@ import { FeaturedUsers } from "@/components/app/post/featuredUsers";
 import { InputComment } from "@/components/app/post/inputComment";
 import { PostDisplay } from "@/components/app/post/postDisplay";
 import { useFetchPost } from "@/hooks/posts/useFetchPost";
-import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
+import { UserContext } from "@/App";
+import { useContext } from "react";
 
 const Post = () => {
-  const { user } = useFetchAuth();
+  const user = useContext(UserContext);
   const { post, comments } = useFetchPost(user.id);
 
   return (
