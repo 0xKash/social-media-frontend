@@ -1,4 +1,5 @@
 import { getPost } from "@/api/posts/post";
+import { transformPost } from "@/lib/posts/transformPosts";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -14,9 +15,10 @@ export const useFetchPost = () => {
     const fetchPost = async () => {
       try {
         const { data } = await getPost(params.postId);
-        setPost(data);
+        setPost(transformPost(data));
         setIsLoading(false);
       } catch (err) {
+        console.log(err);
         navigate("/login");
         setError(err);
         setIsLoading(false);

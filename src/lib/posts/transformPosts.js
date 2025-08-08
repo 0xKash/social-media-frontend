@@ -13,6 +13,25 @@ export const transformPosts = (apiPosts, userId) => {
     content: post.content,
     likeBool: post.likedBy.some((like) => like.id === userId),
     likeNumber: post._count.likedBy,
-    commentNumber: 0,
+    commentNumber: post._count.comments,
   }));
+};
+
+export const transformPost = (apiPost, userId) => {
+  console.log(apiPost);
+
+  return {
+    id: apiPost.authorId,
+    username: apiPost.author.username,
+    joinedAt: dateToText(new Date(apiPost.author.joinedAt)),
+    avatar: apiPost.author.avatar,
+    postId: apiPost.id,
+    followBool: apiPost.author.followedBy.some(
+      (follow) => follow.id === userId
+    ),
+    content: apiPost.content,
+    comments: apiPost.comments,
+    likeNumber: apiPost._count.likedBy,
+    commentNumber: apiPost._count.comments,
+  };
 };

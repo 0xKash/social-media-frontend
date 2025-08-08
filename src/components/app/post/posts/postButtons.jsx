@@ -9,19 +9,19 @@ export function PostButtons({ likeNumber, commentNumber }) {
         {false ? (
           <Button className="w-fit" variant="ghost">
             <Heart color="#FF0000" fill="#FF0000" />
-            <p className="text-[#FF0000] text-xs">123</p>
+            <p className="text-[#FF0000] text-xs">{likeNumber}</p>
           </Button>
         ) : (
           <Button className="w-fit" variant="ghost">
             <Heart />
-            <p className="text-xs">123</p>
+            <p className="text-xs">{likeNumber}</p>
           </Button>
         )}
       </div>
       <div className="flex items-center">
         <Button className="w-fit" variant="ghost" disabled>
           <MessageSquare />
-          <p className="text-xs">453</p>
+          <p className="text-xs">{commentNumber}</p>
         </Button>
       </div>
     </div>
