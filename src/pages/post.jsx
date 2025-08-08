@@ -7,15 +7,15 @@ import { UserContext } from "@/App";
 import { useContext } from "react";
 
 const Post = () => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { post, comments } = useFetchPost(user.id);
 
   return (
     <main className="w-full py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
       <div className="w-full h-fit flex flex-col gap-5">
-        <PostDisplay {...post} />
-        <InputComment {...user} />
-        <MainComments comments={comments} userId={user.id} />
+        <PostDisplay />
+        <InputComment />
+        <MainComments />
       </div>
 
       <FeaturedUsers />

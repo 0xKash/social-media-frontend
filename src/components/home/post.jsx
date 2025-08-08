@@ -4,8 +4,6 @@ import { HoverCardHome } from "@/components/home/hovercard";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { PostButtons } from "./postButtons";
-import { UserContext } from "@/App";
-import { useContext } from "react";
 
 export function Post({
   id,
