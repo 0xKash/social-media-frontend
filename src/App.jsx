@@ -12,11 +12,11 @@ export const UserContext = createContext();
 const router = createBrowserRouter(routes);
 
 function App() {
-  const { user } = useFetchAuth();
+  const data = useFetchAuth();
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={data}>
         <SidebarProvider
           style={{
             "--sidebar-width": "20rem",

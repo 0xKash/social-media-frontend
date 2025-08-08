@@ -13,7 +13,7 @@ import { UserContext } from "@/App";
 import { useContext } from "react";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <Sidebar collapsible="icon" {...props}>
