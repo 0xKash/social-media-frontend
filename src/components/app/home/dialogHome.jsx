@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { createPost } from "@/api/posts/post";
