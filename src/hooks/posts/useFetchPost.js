@@ -1,10 +1,12 @@
 import { getPost } from "@/api/posts/post";
+import { transformComments } from "@/lib/comments/transformComments";
 import { transformPost } from "@/lib/posts/transformPosts";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const useFetchPost = () => {
+export const useFetchPost = (userId) => {
   const [post, setPost] = useState([]);
+  const [comments, setComments] = useState([]);
   const [error, setError] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
@@ -15,7 +17,10 @@ export const useFetchPost = () => {
     const fetchPost = async () => {
       try {
         const { data } = await getPost(params.postId);
-        setPost(transformPost(data));
+
+        setPost(transformPost(data, userId));
+
+        setComments(transformComments(data.comments, userId));
         setIsLoading(false);
       } catch (err) {
         console.log(err);
@@ -28,5 +33,5 @@ export const useFetchPost = () => {
     fetchPost();
   }, []);
 
-  return { post, error, isLoading };
+  return { post, comments, error, isLoading };
 };
