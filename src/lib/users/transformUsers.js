@@ -1,3 +1,4 @@
+// Array of users
 export const transformUsers = (apiUsers) => {
   return apiUsers.map((user) => ({
     id: user.id,
@@ -8,6 +9,7 @@ export const transformUsers = (apiUsers) => {
   }));
 };
 
+// Single user
 export const transformUser = (apiUser) => {
   return {
     id: apiUser.id,
