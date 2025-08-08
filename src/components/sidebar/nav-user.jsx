@@ -23,7 +23,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Badge } from "../../ui/badge";
+import { Badge } from "../ui/badge";
 import { logoutUser } from "@/api/auth/auth";
 import { useNavigate } from "react-router-dom";
 

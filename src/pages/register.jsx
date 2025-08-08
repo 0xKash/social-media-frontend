@@ -1,5 +1,5 @@
 // imports
-import { AuthTitle } from "@/components/app/auth/authTitle";
+import { AuthTitle } from "@/components/auth/common/app-authTitle";
 import { RegisterCard } from "@/components/app/auth/registerCard";
 
 function Register() {

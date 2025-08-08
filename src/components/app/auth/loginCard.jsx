@@ -13,8 +13,8 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { LoginForm } from "./loginForm";
-import { LoginButton } from "./loginButton";
+import { LoginForm } from "@/components/auth/loginForm";
+import { LoginButton } from "@/components/auth/loginButton";
 
 export function LoginCard() {
   const [searchParams] = useSearchParams();

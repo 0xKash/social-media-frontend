@@ -1,10 +1,9 @@
-import { MainComments } from "@/components/app/post/comments/app-mainComments";
-import { FeaturedUsers } from "@/components/app/post/users/app-featuredUsers";
-import { InputComment } from "@/components/app/post/input/app-inputComment";
-import { PostDisplay } from "@/components/app/post/posts/app-postDisplay";
+import { MainComments } from "@/components/app/post/mainComments";
+import { FeaturedUsers } from "@/components/app/post/featuredUsers";
+import { InputComment } from "@/components/app/post/inputComment";
+import { PostDisplay } from "@/components/app/post/postDisplay";
 import { useFetchPost } from "@/hooks/posts/useFetchPost";
 import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
-import { useEffect, useState } from "react";
 
 const Post = () => {
   const { user } = useFetchAuth();

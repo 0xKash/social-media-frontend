@@ -1,6 +1,6 @@
 // imports
 import { Separator } from "@/components/ui/separator";
-import { Post } from "./post";
+import { Post } from "../../home/post";
 import { useFetchPosts } from "@/hooks/posts/useFetchPosts";
 
 export function MainPosts({ userId }) {

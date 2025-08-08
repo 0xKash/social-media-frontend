@@ -1,5 +1,5 @@
 // imports
-import { NavUser } from "@/components/app/sidebar/nav-user";
+import { NavUser } from "@/components/sidebar/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -7,8 +7,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { SidebarTitle } from "./sidebarTitle";
-import { SidebarMenuContent } from "./sidebarMenuContent";
+import { SidebarTitle } from "../../sidebar/sidebarTitle";
+import { SidebarMenuContent } from "../../sidebar/sidebarMenuContent";
 import { useFetchAuth } from "@/hooks/auth/useFetchAuth";
 
 export function AppSidebar({ name, githubBadge, avatar, ...props }) {

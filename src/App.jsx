@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import routes from "./routes";
-import { AppSidebar } from "@/components/app/sidebar/app-sidebar";
+import { AppSidebar } from "@/components/app/sidebar/sidebar";
 
 // setup
 const router = createBrowserRouter(routes);
