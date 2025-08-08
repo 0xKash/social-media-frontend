@@ -2,8 +2,10 @@ import { dislikePost, likePost } from "@/api/posts/like";
 import { Button } from "@/components/ui/button";
 import { Heart, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
+  const navigate = useNavigate();
   const [like, setLike] = useState();
 
   useEffect(() => {
@@ -11,15 +13,17 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
   }, [likeBool]);
 
   const handleLike = async () => {
-    console.log("like");
     await likePost(postId);
     setLike(true);
   };
 
   const handleDislike = async () => {
-    console.log("dislike");
     await dislikePost(postId);
     setLike(false);
+  };
+
+  const handleComment = () => {
+    navigate(`/post/${postId}`);
   };
 
   return (
@@ -38,7 +42,7 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
         )}
       </div>
       <div className="flex items-center">
-        <Button className="w-fit" variant="ghost">
+        <Button className="w-fit" variant="ghost" onClick={handleComment}>
           <MessageSquare />
           <p className="text-xs">{commentNumber}</p>
         </Button>
