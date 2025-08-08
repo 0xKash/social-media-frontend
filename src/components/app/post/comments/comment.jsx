@@ -1,5 +1,5 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { HoverCardHome } from "@/components/app/home/posts/hovercard";
+import { HoverCardHome } from "@/components/app/home/mainPosts/hovercard";
 import { Badge } from "@/components/ui/badge";
 
 import { BadgeCheckIcon } from "lucide-react";
