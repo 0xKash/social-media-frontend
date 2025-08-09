@@ -14,7 +14,7 @@ export function HoverCardHome({
   username,
   joinedAt,
   avatar,
-  targetId,
+  authorId,
   userId,
 }) {
   const [follow, setFollow] = useState(followBool);
@@ -24,12 +24,12 @@ export function HoverCardHome({
   }, [followBool]);
 
   const handleFollow = async () => {
-    await followUser(targetId);
+    await followUser(authorId);
     setFollow(true);
   };
 
   const handleUnfollow = async () => {
-    await unfollowUser(targetId);
+    await unfollowUser(authorId);
     setFollow(false);
   };
 
@@ -50,7 +50,7 @@ export function HoverCardHome({
             </a>
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
           </div>
-          {userId != targetId &&
+          {userId != authorId &&
             (follow ? (
               <Button
                 className="ml-auto"

@@ -4,11 +4,15 @@ import { InputComment } from "@/components/app/post/inputComment";
 import { PostDisplay } from "@/components/app/post/postDisplay";
 import { useFetchPost } from "@/hooks/posts/useFetchPost";
 import { UserContext } from "@/App";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { collectAuthorIds } from "@/lib/handlers/data/posts/collectAuthorIds";
+import { UserFollow } from "@/components/post/userFollow";
 
 const Post = () => {
   const { user } = useContext(UserContext);
   const { post, comments } = useFetchPost(user.id);
+
+  console.log(post, comments);
 
   return (
     <main className="w-full py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
@@ -17,8 +21,6 @@ const Post = () => {
         <InputComment {...user} />
         <MainComments comments={comments} />
       </div>
-
-      <FeaturedUsers />
     </main>
   );
 };
