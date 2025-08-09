@@ -14,5 +14,7 @@ export const transformComments = (apiComments, userId) => {
     // comment data
     date: formatDate(new Date(comment.createdAt)),
     content: comment.content,
+    //auth data
+    userId: userId,
   }));
 };
