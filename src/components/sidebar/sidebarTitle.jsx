@@ -10,13 +10,13 @@ export function SidebarTitle() {
       <SidebarMenuItem>
         <SidebarMenuButton size="lg" asChild>
           <a href="#">
-            <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+            <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
               <svg
                 width="40"
                 height="40"
                 viewBox="0 0 200 200"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill=""
               >
                 <rect width="200" height="200" rx="30" fill="#111111" />
                 <text
