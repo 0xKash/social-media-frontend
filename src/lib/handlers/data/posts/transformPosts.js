@@ -17,6 +17,8 @@ export const transformPosts = (apiPosts, userId) => {
     likeBool: post.likedBy.some((like) => like.id === userId),
     likeNumber: post._count.likedBy,
     commentNumber: post._count.comments,
+    //auth data
+    userId: userId,
   }));
 };
 
@@ -38,5 +40,7 @@ export const transformPost = (post, userId) => {
     likeNumber: post._count.likedBy,
     likeNumber: post._count.likedBy,
     commentNumber: post._count.comments,
+    //auth data
+    userId: userId,
   };
 };
