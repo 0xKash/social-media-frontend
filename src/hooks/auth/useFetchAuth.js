@@ -1,5 +1,5 @@
 import { authUser } from "@/api/auth/auth";
-import { transformUser } from "@/lib/handlers/data/users/transformUsers";
+import { transformAuth } from "@/lib/handlers/data/users/transformUsers";
 import { useEffect, useState } from "react";
 
 export const useFetchAuth = () => {
@@ -12,7 +12,7 @@ export const useFetchAuth = () => {
       try {
         const { data } = await authUser();
 
-        setUser(transformUser(data));
+        setUser(transformAuth(data));
         setIsLoading(false);
       } catch (err) {
         setError(err);
