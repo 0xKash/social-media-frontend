@@ -15,8 +15,6 @@ export function Comment({
   joinedAt,
   userId,
 }) {
-  console.log(username, userId, authorId);
-
   return (
     <div className="flex flex-col gap-2 w-full">
       <div className=" flex gap-3 items-center w-full h-fit">
