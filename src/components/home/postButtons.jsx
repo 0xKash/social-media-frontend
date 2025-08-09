@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
   const navigate = useNavigate();
   const [like, setLike] = useState();
+  const [likeNumberState, setLikeNumberState] = useState(likeNumber);
 
   useEffect(() => {
     setLike(likeBool);
@@ -14,12 +15,15 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
 
   const handleLike = async () => {
     await likePost(postId);
+
     setLike(true);
+    setLikeNumberState(likeNumberState + 1);
   };
 
   const handleDislike = async () => {
     await dislikePost(postId);
     setLike(false);
+    setLikeNumberState(likeNumberState - 1);
   };
 
   const handleComment = () => {
@@ -32,12 +36,12 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
         {like ? (
           <Button className="w-fit" variant="ghost" onClick={handleDislike}>
             <Heart color="#FF0000" fill="#FF0000" />
-            <p className="text-[#FF0000] text-xs">{likeNumber}</p>
+            <p className="text-[#FF0000] text-xs">{likeNumberState}</p>
           </Button>
         ) : (
           <Button className="w-fit" variant="ghost" onClick={handleLike}>
             <Heart />
-            <p className="text-xs">{likeNumber}</p>
+            <p className="text-xs">{likeNumberState}</p>
           </Button>
         )}
       </div>
