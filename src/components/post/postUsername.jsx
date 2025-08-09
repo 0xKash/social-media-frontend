@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/hover-card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { followUser } from "@/api/users/follow";
+import { followUser, unfollowUser } from "@/api/users/follow";
 import { useEffect, useState } from "react";
 
 export function PostUsername({
@@ -29,7 +29,7 @@ export function PostUsername({
   };
 
   const handleUnfollow = async () => {
-    await followUser(authorId);
+    await unfollowUser(authorId);
     setFollow(false);
   };
 

@@ -12,7 +12,7 @@ const Post = () => {
   const { user } = useContext(UserContext);
   const { post, comments } = useFetchPost(user.id);
 
-  console.log(post, comments);
+  const featuredIds = collectAuthorIds(comments, post.authorId);
 
   return (
     <main className="w-full py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
@@ -20,6 +20,12 @@ const Post = () => {
         <PostDisplay {...post} />
         <InputComment {...user} />
         <MainComments comments={comments} />
+      </div>
+      <div className="bg-popover w-1/2 h-fit sticky top-10 max-xl:hidden rounded-lg p-5 border">
+        <h4 className="text-2xl font-semibold">Featured users</h4>
+        {featuredIds.map((id, key) => (
+          <UserFollow key={key} authorId={id} userId={user.id} />
+        ))}
       </div>
     </main>
   );
