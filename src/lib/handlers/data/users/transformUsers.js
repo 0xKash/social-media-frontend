@@ -11,14 +11,12 @@ export const transformUsers = (apiUsers) => {
 
 // Single user
 export const transformUser = (apiUser, userId) => {
-  console.log(apiUser, userId);
-
   return {
     id: apiUser.id,
     username: apiUser.username,
-    avatar: apiUser.avatar ? apiUser.avatar : apiUser.photos[0].value,
+    avatar: apiUser.avatar,
     followBool: apiUser.followedBy.some((follow) => follow.id === userId),
-    badgeBool: apiUser.nodeId ? true : false,
+    badgeBool: apiUser.github_id ? true : false,
   };
 };
 
