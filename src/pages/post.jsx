@@ -19,7 +19,7 @@ const Post = () => {
       <div className="w-full h-fit flex flex-col gap-5">
         <PostDisplay {...post} />
         <InputComment {...user} />
-        <MainComments comments={comments} />
+        <MainComments comments={comments} userId={user.id} />
       </div>
       <div className="bg-popover w-1/2 h-fit sticky top-10 max-xl:hidden rounded-lg p-5 border">
         <h4 className="text-2xl font-semibold">Featured users</h4>
