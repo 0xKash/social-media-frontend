@@ -6,7 +6,7 @@ import { BadgeCheckIcon } from "lucide-react";
 import { PostButtons } from "./postButtons";
 
 export function Post({
-  id,
+  authorId,
   avatar,
   badgeBool,
   date,
@@ -33,7 +33,7 @@ export function Post({
             username={username}
             joinedAt={joinedAt}
             avatar={avatar}
-            targetId={id}
+            authorId={authorId}
             userId={userId}
           />
           {badgeBool && (
