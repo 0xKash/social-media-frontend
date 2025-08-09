@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 
 export function Comment({
-  id,
+  authorId,
   avatar,
   badgeBool,
   date,
@@ -28,7 +28,7 @@ export function Comment({
             username={username}
             joinedAt={joinedAt}
             avatar={avatar}
-            targetId={id}
+            authorId={authorId}
             userId={userId}
           />
           {badgeBool && (

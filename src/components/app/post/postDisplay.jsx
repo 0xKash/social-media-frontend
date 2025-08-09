@@ -9,11 +9,14 @@ export function PostDisplay({
   avatar,
   joinedAt,
   userId,
-  targetId,
+  authorId,
   followBool,
   content,
   likeNumber,
   commentNumber,
+  date,
+  likeBool,
+  postId,
 }) {
   return (
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg  p-5  border">
@@ -27,11 +30,17 @@ export function PostDisplay({
           avatar={avatar}
           joinedAt={joinedAt}
           userId={userId}
-          targetId={targetId}
+          authorId={authorId}
           followBool={followBool}
+          date={date}
         />
         <PostContent content={content} />
-        <PostButtons likeNumber={likeNumber} commentNumber={commentNumber} />
+        <PostButtons
+          likeBool={likeBool}
+          likeNumber={likeNumber}
+          commentNumber={commentNumber}
+          postId={postId}
+        />
       </div>
     </div>
   );
