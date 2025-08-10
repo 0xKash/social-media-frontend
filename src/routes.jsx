@@ -3,6 +3,7 @@ import Register from "@/pages/register";
 import Home from "@/pages/home";
 import Post from "@/pages/post";
 import Profile from "@/pages/profile";
+import Settings from "@/pages/settings";
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: "/post/:postId",
     element: <Post />,
+  },
+  {
+    path: "/settings",
+    element: <Settings />,
   },
 ];
 
