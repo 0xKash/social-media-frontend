@@ -49,3 +49,21 @@ export const getUserByUsername = async (username) => {
     throw err;
   }
 };
+
+export const updateAvatar = async (avatar) => {
+  try {
+    const response = await fetch(`${API_URL}/users/avatar`, {
+      method: "PUT",
+      credentials: "include",
+      body: avatar,
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};
