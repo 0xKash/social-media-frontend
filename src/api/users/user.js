@@ -33,3 +33,19 @@ export const getUser = async (userId) => {
     throw err;
   }
 };
+
+export const getUserByUsername = async (username) => {
+  try {
+    const response = await fetch(`${API_URL}/users/users/${username}`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};

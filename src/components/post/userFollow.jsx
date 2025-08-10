@@ -43,15 +43,16 @@ export function UserFollow({ authorId, userId }) {
           Github
         </Badge>
       )}
-      {follow ? (
-        <Button className="ml-auto" variant="ghost" onClick={handleUnfollow}>
-          Following
-        </Button>
-      ) : (
-        <Button className="ml-auto" onClick={handleFollow}>
-          Follow
-        </Button>
-      )}
+      {userId != authorId &&
+        (follow ? (
+          <Button className="ml-auto" variant="ghost" onClick={handleUnfollow}>
+            Following
+          </Button>
+        ) : (
+          <Button className="ml-auto" onClick={handleFollow}>
+            Follow
+          </Button>
+        ))}
     </div>
   );
 }

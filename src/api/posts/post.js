@@ -34,6 +34,22 @@ export const getPost = async (postId) => {
   }
 };
 
+export const getUserPosts = async (username) => {
+  try {
+    const response = await fetch(`${API_URL}/posts/users/${username}`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const createPost = async (content) => {
   try {
     const response = await fetch(`${API_URL}/posts`, {

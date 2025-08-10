@@ -36,7 +36,9 @@ export function HoverCardHome({
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">{`@${username}`}</Button>
+        <Button variant="link">
+          <a href={username}>{`@${username}`}</a>
+        </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex items-center gap-1">
@@ -45,7 +47,7 @@ export function HoverCardHome({
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
-            <a className="text-sm font-semibold" href="#">
+            <a className="text-sm font-semibold" href={username}>
               {`@${username}`}
             </a>
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>
