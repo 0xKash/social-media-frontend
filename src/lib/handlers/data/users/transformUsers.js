@@ -15,8 +15,11 @@ export const transformUser = (apiUser, userId) => {
     id: apiUser.id,
     username: apiUser.username,
     avatar: apiUser.avatar,
+    description: apiUser.description,
     followBool: apiUser.followedBy.some((follow) => follow.id === userId),
     badgeBool: apiUser.github_id ? true : false,
+    followingCount: apiUser._count.following,
+    followedByCount: apiUser._count.followedBy,
   };
 };
 
