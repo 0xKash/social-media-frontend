@@ -1,7 +1,7 @@
 export const collectAuthorIds = (comments, postAuthorId) => {
   const data = comments.map((comment) => comment.authorId);
-  data.slice(0, 5);
   data.unshift(postAuthorId);
+  const uniqueIds = [...new Set(data)];
 
-  return data;
+  return uniqueIds.slice(0, 5);
 };
