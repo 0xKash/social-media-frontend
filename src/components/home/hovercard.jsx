@@ -47,7 +47,7 @@ export function HoverCardHome({
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
           <div className="space-y-1">
-            <a className="text-sm font-semibold" href={username}>
+            <a className="text-sm font-semibold" href={`/${username}`}>
               {`@${username}`}
             </a>
             <div className="text-muted-foreground text-xs">{`Joined ${joinedAt}`}</div>

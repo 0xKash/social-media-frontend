@@ -24,7 +24,10 @@ export function Post({
     <div className="flex flex-col gap-2 w-full">
       <div className=" flex gap-3 items-center w-full h-fit">
         <div className="flex items-center">
-          <Avatar className=" rounded-lg">
+          <Avatar
+            className=" rounded-lg cursor-pointer"
+            onClick={() => (window.location.href = `/${username}`)}
+          >
             <AvatarImage src={avatar} />
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>

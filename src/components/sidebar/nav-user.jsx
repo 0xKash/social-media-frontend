@@ -94,12 +94,16 @@ export function NavUser({ user }) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => (window.location.href = "/settings")}
+              >
                 <Settings />
                 Settings
               </DropdownMenuItem>
 
-              <DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => (window.location.href = `/${user.username}`)}
+              >
                 <User2 />
                 Profile
               </DropdownMenuItem>

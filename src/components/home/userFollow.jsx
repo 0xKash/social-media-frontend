@@ -27,7 +27,10 @@ export function UserFollow({
 
   return (
     <div className="my-5 flex items-center gap-2">
-      <Avatar className="size-15 rounded-lg">
+      <Avatar
+        className="size-15 rounded-lg cursor-pointer"
+        onClick={() => (window.location.href = `/${username}`)}
+      >
         <AvatarImage src={avatar} />
         <AvatarFallback className="rounded-lg">KH</AvatarFallback>
       </Avatar>
