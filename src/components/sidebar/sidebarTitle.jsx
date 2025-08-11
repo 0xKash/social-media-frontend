@@ -9,7 +9,7 @@ export function SidebarTitle() {
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton size="lg" asChild>
-          <a href="#">
+          <a href="/home">
             <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
               <svg
                 width="40"

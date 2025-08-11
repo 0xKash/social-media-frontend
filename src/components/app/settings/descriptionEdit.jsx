@@ -22,7 +22,7 @@ export function DescriptionEdit({ description }) {
       <h1 className="text-2xl font-semibold">Change your description:</h1>
       <form action="" className="flex gap-5" onSubmit={handleSubmit}>
         <Textarea
-          className="w-1/2 max-w-full h-full resize-none overflow-hidden break-all"
+          className="lg:w-1/2 max-w-full h-full resize-none overflow-hidden break-all"
           resize="none"
           placeholder={descriptionState ? null : "Describe yourself!"}
           maxLength="120"
