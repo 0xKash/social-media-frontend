@@ -29,6 +29,22 @@ export const getPosts = async (trending) => {
   }
 };
 
+export const getFollowingPosts = async () => {
+  try {
+    const response = await fetch(`${API_URL}/posts/following`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const getPost = async (postId) => {
   try {
     const response = await fetch(`${API_URL}/posts/${postId}`, {

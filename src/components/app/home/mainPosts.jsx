@@ -6,7 +6,18 @@ import { useSearchParams } from "react-router-dom";
 
 export function MainPosts({ userId }) {
   const [searchParams] = useSearchParams();
-  const { posts } = useFetchPosts(userId, searchParams.get("trending"));
+
+  let data;
+
+  if (searchParams.get("following") != null) {
+    data = useFetchPosts(userId, searchParams.get("following"));
+  } else if (searchParams.get("trending")) {
+    data = useFetchPosts(userId, false, searchParams.get("trending"));
+  } else {
+    data = useFetchPosts(userId);
+  }
+
+  const { posts } = data;
 
   return (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">

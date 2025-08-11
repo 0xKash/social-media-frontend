@@ -17,12 +17,12 @@ const items = [
   },
   {
     title: "Trending",
-    url: "#",
+    url: "/home?trending=true",
     icon: Flame,
   },
   {
     title: "Following",
-    url: "#",
+    url: "/home?following=true",
     icon: Contact,
   },
 
