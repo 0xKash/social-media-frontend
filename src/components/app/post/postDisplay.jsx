@@ -20,7 +20,10 @@ export function PostDisplay({
 }) {
   return (
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg  p-5  border">
-      <Avatar className="lg:size-20 rounded-lg">
+      <Avatar
+        className="lg:size-20 rounded-lg cursor-pointer"
+        onClick={() => (window.location.href = `/${username}`)}
+      >
         <AvatarImage src={avatar} />
         <AvatarFallback>KH</AvatarFallback>
       </Avatar>

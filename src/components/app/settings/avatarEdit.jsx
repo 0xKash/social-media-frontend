@@ -10,8 +10,6 @@ export function AvatarEdit({ avatar }) {
   const [avatarPreview, setAvatarPreview] = useState([]);
   const [previewBool, setPreviewBool] = useState(false);
 
-  console.log(avatar);
-
   useEffect(() => {
     setAvatarState(avatar);
   }, [avatar]);

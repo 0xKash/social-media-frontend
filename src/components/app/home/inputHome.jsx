@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { createPost } from "@/api/posts/post";
 import { useState } from "react";
 
-export function InputHome({ avatar }) {
+export function InputHome({ avatar, username }) {
   const [content, setContent] = useState([]);
 
   const handleSubmit = async () => {
@@ -16,7 +16,10 @@ export function InputHome({ avatar }) {
 
   return (
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg border p-5 max-sm:hidden">
-      <Avatar className="lg:size-20 rounded-lg">
+      <Avatar
+        className="lg:size-20 rounded-lg cursor-pointer"
+        onClick={() => (window.location.href = `/${username}`)}
+      >
         <AvatarImage src={avatar} />
         <AvatarFallback>KH</AvatarFallback>
       </Avatar>

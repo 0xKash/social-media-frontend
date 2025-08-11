@@ -29,11 +29,17 @@ export function UserFollow({ authorId, userId }) {
 
   return (
     <div className="my-5 flex items-center gap-2">
-      <Avatar className="size-15 rounded-lg">
+      <Avatar
+        className="size-15 rounded-lg cursor-pointer"
+        onClick={() => (window.location.href = `/${username}`)}
+      >
         <AvatarImage src={user.avatar} />
         <AvatarFallback className="rounded-lg">KH</AvatarFallback>
       </Avatar>
-      <a className="text-xl font-semibold" href="#">{`@${user.username}`}</a>
+      <a
+        className="text-xl font-semibold"
+        href={`/${user.username}`}
+      >{`@${user.username}`}</a>
       {user.badgeBool && (
         <Badge
           variant="default"
