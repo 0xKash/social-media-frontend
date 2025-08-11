@@ -7,6 +7,7 @@ import { UserContext } from "@/App";
 import { useContext, useEffect, useState } from "react";
 import { collectAuthorIds } from "@/lib/handlers/data/posts/collectAuthorIds";
 import { UserFollow } from "@/components/post/userFollow";
+import { DialogPost } from "@/components/app/post/dialogPost";
 
 const Post = () => {
   const { user } = useContext(UserContext);
@@ -27,6 +28,7 @@ const Post = () => {
           <UserFollow key={key} authorId={id} userId={user.id} />
         ))}
       </div>
+      <DialogPost {...post} avatar={user.avatar} />
     </main>
   );
 };
