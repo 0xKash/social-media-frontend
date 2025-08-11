@@ -1,8 +1,9 @@
 import { dislikePost, likePost } from "@/api/posts/like";
 import { Button } from "@/components/ui/button";
-import { Heart, MessageSquare } from "lucide-react";
+import { Heart, MessageSquare, EllipsisVertical } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DropdownMenuSettings } from "../common/dropdownSettings";
 
 export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
 
   return (
     <div className="flex gap-1">
-      <div className="flex items-center">
+      <div className="flex items-center w-full">
         {like ? (
           <Button className="w-fit" variant="ghost" onClick={handleDislike}>
             <Heart color="#FF0000" fill="#FF0000" />
@@ -44,8 +45,6 @@ export function PostButtons({ likeBool, likeNumber, commentNumber, postId }) {
             <p className="text-xs">{likeNumberState}</p>
           </Button>
         )}
-      </div>
-      <div className="flex items-center">
         <Button className="w-fit" variant="ghost" onClick={handleComment}>
           <MessageSquare />
           <p className="text-xs">{commentNumber}</p>

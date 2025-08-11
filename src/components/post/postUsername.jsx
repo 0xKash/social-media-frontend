@@ -8,6 +8,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { followUser, unfollowUser } from "@/api/users/follow";
 import { useEffect, useState } from "react";
 import { Badge, BadgeCheckIcon } from "lucide-react";
+import { DropdownMenuSettings } from "../common/dropdownSettings";
 
 export function PostUsername({
   username,
@@ -17,6 +18,7 @@ export function PostUsername({
   authorId,
   followBool,
   date,
+  postId,
 }) {
   const [follow, setFollow] = useState(followBool);
 
@@ -78,6 +80,11 @@ export function PostUsername({
         </HoverCard>
       </div>
       <p className="text-muted-foreground text-sm">{date}</p>
+      {userId === authorId && (
+        <div className="ml-auto">
+          <DropdownMenuSettings variant="post" postId={postId} />
+        </div>
+      )}
     </div>
   );
 }

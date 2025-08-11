@@ -2,6 +2,8 @@ import { Comment } from "@/components/post/comment";
 import { Separator } from "@/components/ui/separator";
 
 export function MainComments({ comments, userId }) {
+  console.log(comments);
+
   return (
     comments &&
     comments.length != 0 && (
@@ -13,6 +15,7 @@ export function MainComments({ comments, userId }) {
           >
             <Comment
               {...comment}
+              commentId={comment.commentId}
               followBool={comment.followBool}
               userId={userId}
             />

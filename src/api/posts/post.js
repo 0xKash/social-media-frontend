@@ -72,3 +72,20 @@ export const createPost = async (content) => {
     throw err;
   }
 };
+
+export const deletePost = async (postId) => {
+  try {
+    const response = await fetch(`${API_URL}/posts/${postId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};

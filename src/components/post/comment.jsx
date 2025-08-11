@@ -3,9 +3,12 @@ import { HoverCardHome } from "@/components/home/hovercard";
 import { Badge } from "@/components/ui/badge";
 
 import { BadgeCheckIcon } from "lucide-react";
+import { DropdownMenuSettings } from "../common/dropdownSettings";
 
 export function Comment({
   authorId,
+  postId,
+  commentId,
   avatar,
   badgeBool,
   date,
@@ -15,6 +18,8 @@ export function Comment({
   joinedAt,
   userId,
 }) {
+  console.log(commentId, postId);
+
   return (
     <div className="flex flex-col gap-2 w-full">
       <div className=" flex gap-3 items-center w-full h-fit">
@@ -41,7 +46,16 @@ export function Comment({
             </Badge>
           )}
         </div>
-        <p className="ml-auto text-muted-foreground text-sm">{date}</p>
+        <p className="text-muted-foreground text-sm">{date}</p>
+        {userId === authorId && (
+          <div className="ml-auto">
+            <DropdownMenuSettings
+              variant="comment"
+              postId={postId}
+              commentId={commentId}
+            />
+          </div>
+        )}
       </div>
       <p>{content}</p>
     </div>

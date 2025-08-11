@@ -4,6 +4,7 @@ import { HoverCardHome } from "@/components/home/hovercard";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { PostButtons } from "./postButtons";
+import { DropdownMenuSettings } from "../common/dropdownSettings";
 
 export function Post({
   authorId,
@@ -49,7 +50,12 @@ export function Post({
             </Badge>
           )}
         </div>
-        <p className="ml-auto text-muted-foreground text-sm">{date}</p>
+        <p className="text-muted-foreground text-sm">{date}</p>
+        {userId === authorId && (
+          <div className="ml-auto">
+            <DropdownMenuSettings variant="post" postId={postId} />
+          </div>
+        )}
       </div>
       <p>{content}</p>
       <PostButtons

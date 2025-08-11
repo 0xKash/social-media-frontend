@@ -12,6 +12,8 @@ export const transformComments = (apiComments, userId) => {
       (follow) => follow.id === userId
     ),
     // comment data
+    postId: comment.postId,
+    commentId: comment.id,
     date: formatDate(new Date(comment.createdAt)),
     content: comment.content,
     //auth data

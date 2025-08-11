@@ -36,6 +36,7 @@ export function PostDisplay({
           authorId={authorId}
           followBool={followBool}
           date={date}
+          postId={postId}
         />
         <PostContent content={content} />
         <PostButtons
