@@ -9,6 +9,7 @@ import { followUser, unfollowUser } from "@/api/users/follow";
 import { useEffect, useState } from "react";
 import { Badge, BadgeCheckIcon } from "lucide-react";
 import { DropdownMenuSettings } from "../common/dropdownSettings";
+import { deletePost } from "@/api/posts/post";
 
 export function PostUsername({
   username,
@@ -34,6 +35,11 @@ export function PostUsername({
   const handleUnfollow = async () => {
     await unfollowUser(authorId);
     setFollow(false);
+  };
+
+  const handleDelete = async () => {
+    await deletePost(postId);
+    history.back();
   };
 
   return (
@@ -82,7 +88,11 @@ export function PostUsername({
       <p className="text-muted-foreground text-sm">{date}</p>
       {userId === authorId && (
         <div className="ml-auto">
-          <DropdownMenuSettings variant="post" postId={postId} />
+          <DropdownMenuSettings
+            variant="post"
+            postId={postId}
+            handleDelete={handleDelete}
+          />
         </div>
       )}
     </div>

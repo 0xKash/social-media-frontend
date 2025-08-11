@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { BadgeCheckIcon } from "lucide-react";
 import { DropdownMenuSettings } from "../common/dropdownSettings";
+import { deleteComment } from "@/api/posts/comment";
 
 export function Comment({
   authorId,
@@ -18,7 +19,10 @@ export function Comment({
   joinedAt,
   userId,
 }) {
-  console.log(commentId, postId);
+  const handleDelete = async () => {
+    await deleteComment(commentId, postId);
+    window.location.reload();
+  };
 
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -49,11 +53,7 @@ export function Comment({
         <p className="text-muted-foreground text-sm">{date}</p>
         {userId === authorId && (
           <div className="ml-auto">
-            <DropdownMenuSettings
-              variant="comment"
-              postId={postId}
-              commentId={commentId}
-            />
+            <DropdownMenuSettings handleDelete={handleDelete} />
           </div>
         )}
       </div>

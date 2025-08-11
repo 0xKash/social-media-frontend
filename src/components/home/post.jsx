@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { PostButtons } from "./postButtons";
 import { DropdownMenuSettings } from "../common/dropdownSettings";
+import { deletePost } from "@/api/posts/post";
 
 export function Post({
   authorId,
@@ -21,6 +22,11 @@ export function Post({
   userId,
   postId,
 }) {
+  const handleDelete = async () => {
+    await deletePost(postId);
+    window.location.reload();
+  };
+
   return (
     <div className="flex flex-col gap-2 w-full">
       <div className=" flex gap-3 items-center w-full h-fit">
@@ -53,7 +59,7 @@ export function Post({
         <p className="text-muted-foreground text-sm">{date}</p>
         {userId === authorId && (
           <div className="ml-auto">
-            <DropdownMenuSettings variant="post" postId={postId} />
+            <DropdownMenuSettings handleDelete={handleDelete} />
           </div>
         )}
       </div>

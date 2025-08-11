@@ -16,23 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVerticalIcon, Trash } from "lucide-react";
-export function DropdownMenuSettings({ variant, postId, commentId }) {
-  const handleDelete = async () => {
-    switch (variant) {
-      case "post":
-        await deletePost(postId);
-        console.log("post");
-        break;
-
-      case "comment":
-        await deleteComment(commentId, postId);
-        console.log("comment");
-        break;
-    }
-
-    window.location.reload();
-  };
-
+export function DropdownMenuSettings({ handleDelete, postId, commentId }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
