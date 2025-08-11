@@ -28,6 +28,7 @@ export const transformAuth = (authUser) => {
   return {
     id: authUser.id,
     username: authUser.username,
+    description: authUser.description,
     avatar: authUser.avatar ? authUser.avatar : authUser.photos[0].value,
     followBool: false,
     badgeBool: authUser.nodeId ? true : false,

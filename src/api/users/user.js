@@ -67,3 +67,26 @@ export const updateAvatar = async (avatar) => {
     throw err;
   }
 };
+
+export const updateDescription = async (description) => {
+  try {
+    const response = await fetch(`${API_URL}/users/description`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        description: description,
+      }),
+    });
+
+    if (!response.ok) {
+      apiErrorHandler(await response.json());
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+};
