@@ -1,6 +1,7 @@
 import { authUser } from "@/api/auth/auth";
 import { transformAuth } from "@/lib/handlers/data/users/transformUsers";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useFetchAuth = () => {
   const [user, setUser] = useState([]);
@@ -15,6 +16,7 @@ export const useFetchAuth = () => {
         setUser(transformAuth(data));
         setIsLoading(false);
       } catch (err) {
+        history.push("/login");
         setError(err);
         setIsLoading(false);
       }

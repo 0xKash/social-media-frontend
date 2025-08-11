@@ -23,8 +23,14 @@ function App() {
           }}
           defaultOpen
         >
-          <AppSidebar />
-          <SidebarTrigger className="m-2" />
+          {location.pathname != "/login" &&
+            location.pathname != "/register" && (
+              <>
+                <AppSidebar />
+                <SidebarTrigger className="m-2" />
+              </>
+            )}
+
           <main className="flex flex-col justify-center items-center w-full max-sm:overflow-hidden bg-background">
             <RouterProvider router={router} />
           </main>
