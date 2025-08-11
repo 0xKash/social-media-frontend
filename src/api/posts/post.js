@@ -2,11 +2,22 @@ import { apiErrorHandler } from "@/lib/handlers/error/error";
 
 const API_URL = process.env.API_URL;
 
-export const getPosts = async () => {
+export const getPosts = async (trending) => {
   try {
-    const response = await fetch(`${API_URL}/posts`, {
-      credentials: "include",
-    });
+    let response;
+
+    if (trending) {
+      response = await fetch(
+        `${API_URL}/posts?trending=${trending.toString()}`,
+        {
+          credentials: "include",
+        }
+      );
+    } else {
+      response = await fetch(`${API_URL}/posts`, {
+        credentials: "include",
+      });
+    }
 
     if (!response.ok) {
       apiErrorHandler(await response.json());

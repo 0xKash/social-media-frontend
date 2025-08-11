@@ -2,9 +2,11 @@
 import { Separator } from "@/components/ui/separator";
 import { Post } from "../../home/post";
 import { useFetchPosts } from "@/hooks/posts/useFetchPosts";
+import { useSearchParams } from "react-router-dom";
 
 export function MainPosts({ userId }) {
-  const { posts } = useFetchPosts(userId);
+  const [searchParams] = useSearchParams();
+  const { posts } = useFetchPosts(userId, searchParams.get("trending"));
 
   return (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">

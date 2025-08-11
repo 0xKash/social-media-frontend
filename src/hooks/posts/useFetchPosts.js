@@ -1,9 +1,9 @@
 import { getPosts } from "@/api/posts/post";
 import { transformPosts } from "@/lib/handlers/data/posts/transformPosts";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-export const useFetchPosts = (userId) => {
+export const useFetchPosts = (userId, trending) => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,11 +13,13 @@ export const useFetchPosts = (userId) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await getPosts();
+        const { data } = await getPosts(trending);
         setPosts(transformPosts(data, userId));
 
         setIsLoading(false);
       } catch (err) {
+        console.error(err);
+
         navigate("/login");
         setError(err);
         setIsLoading(false);
@@ -25,7 +27,7 @@ export const useFetchPosts = (userId) => {
     };
 
     fetchPosts();
-  }, [userId]);
+  }, [userId, trending]);
 
   return { posts, error, isLoading };
 };
