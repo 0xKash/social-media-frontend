@@ -5,9 +5,10 @@ import { Separator } from "@/components/ui/separator";
 
 export function ProfilePosts({ userId }) {
   const params = useParams();
-  const { posts } = useFetchUserPosts(params.username, userId);
+  const { posts, isLoading } = useFetchUserPosts(params.username, userId);
 
   return (
+    !isLoading &&
     posts.length != 0 && (
       <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
         {posts &&

@@ -16,7 +16,6 @@ export const useFetchAuth = () => {
         setUser(transformAuth(data));
         setIsLoading(false);
       } catch (err) {
-        history.push("/login");
         setError(err);
         setIsLoading(false);
       }

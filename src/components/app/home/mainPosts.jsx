@@ -17,9 +17,13 @@ export function MainPosts({ userId }) {
     data = useFetchPosts(userId);
   }
 
-  const { posts } = data;
+  const { posts, isLoading } = data;
 
-  return (
+  return !isLoading && posts.length === 0 ? (
+    <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
+      <h1 className="text-xl font-semibold">You don't follow anyone yet!</h1>
+    </div>
+  ) : (
     <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
       {posts.map((post, key) => (
         <div
