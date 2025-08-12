@@ -26,8 +26,8 @@ export function DropdownMenuSettings({ handleDelete, postId, commentId }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuItem onClick={handleDelete}>
-          Delete
-          <Trash className="ml-auto" />
+          <p className="text-red-500">Delete</p>
+          <Trash className="ml-auto" color="red" />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
