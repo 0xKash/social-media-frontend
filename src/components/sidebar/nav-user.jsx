@@ -24,8 +24,9 @@ import {
 } from "@/components/ui/sidebar";
 import { Badge } from "../ui/badge";
 import { logoutUser } from "@/api/auth/auth";
+import { Skeleton } from "../ui/skeleton";
 
-export function NavUser({ user }) {
+export function NavUser({ user, isLoading }) {
   const { isMobile } = useSidebar();
 
   const handleLogout = async () => {
@@ -39,45 +40,19 @@ export function NavUser({ user }) {
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-            >
-              <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.username} />
-                <AvatarFallback className="rounded-lg">KH</AvatarFallback>
-              </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold text-sm flex items-center gap-5">
-                  {`@${user.username}`}
-                  {user.badgeBool && (
-                    <Badge
-                      variant="default"
-                      className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
-                    >
-                      <BadgeCheckIcon />
-                      Github
-                    </Badge>
-                  )}
-                </span>
-              </div>
-              <ChevronsUpDown className="ml-auto size-4" />
-            </SidebarMenuButton>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
-            align="end"
-            sideOffset={4}
-          >
-            <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+            {isLoading ? (
+              <Skeleton className="w-full h-[40px]" />
+            ) : (
+              <SidebarMenuButton
+                size="lg"
+                className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.username} />
                   <AvatarFallback className="rounded-lg">KH</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold flex items-center gap-5">
+                  <span className="truncate font-semibold text-sm flex items-center gap-5">
                     {`@${user.username}`}
                     {user.badgeBool && (
                       <Badge
@@ -90,7 +65,41 @@ export function NavUser({ user }) {
                     )}
                   </span>
                 </div>
-              </div>
+                <ChevronsUpDown className="ml-auto size-4" />
+              </SidebarMenuButton>
+            )}
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+            side={isMobile ? "bottom" : "right"}
+            align="end"
+            sideOffset={4}
+          >
+            <DropdownMenuLabel className="p-0 font-normal">
+              {isLoading ? (
+                <Skeleton className="w-full h-[50px]" />
+              ) : (
+                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                  <Avatar className="h-8 w-8 rounded-lg">
+                    <AvatarImage src={user.avatar} alt={user.username} />
+                    <AvatarFallback className="rounded-lg">KH</AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-semibold flex items-center gap-5">
+                      {`@${user.username}`}
+                      {user.badgeBool && (
+                        <Badge
+                          variant="default"
+                          className="flex w-18 h-4 bg-chart-1 text-white text-xs rounded-sm"
+                        >
+                          <BadgeCheckIcon />
+                          Github
+                        </Badge>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              )}
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>

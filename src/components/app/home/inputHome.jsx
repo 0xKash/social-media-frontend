@@ -5,8 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { createPost } from "@/api/posts/post";
 import { useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export function InputHome({ avatar, username }) {
+export function InputHome({ avatar, username, isLoading }) {
   const [content, setContent] = useState([]);
 
   const handleSubmit = async () => {
@@ -14,7 +15,9 @@ export function InputHome({ avatar, username }) {
     window.location.reload();
   };
 
-  return (
+  return isLoading ? (
+    <Skeleton className="w-full h-[135px] rounded-xl" />
+  ) : (
     <div className="w-full bg-popover h-fit flex items-center gap-5 rounded-lg border p-5 max-sm:hidden">
       <Avatar
         className="lg:size-20 rounded-lg cursor-pointer"
