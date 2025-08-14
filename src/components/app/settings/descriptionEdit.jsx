@@ -25,7 +25,7 @@ export function DescriptionEdit({ description }) {
           className="lg:w-1/2 max-w-full h-full resize-none overflow-hidden break-all"
           resize="none"
           placeholder={descriptionState ? null : "Describe yourself!"}
-          maxLength="120"
+          maxLength="160"
           value={descriptionState}
           onChange={(e) => {
             setDescriptionState(e.target.value);
