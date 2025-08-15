@@ -7,9 +7,10 @@ import { useFetchUser } from "@/hooks/users/useFetchUser";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/App";
 import { followUser, unfollowUser } from "@/api/users/follow";
+import { Skeleton } from "../ui/skeleton";
 
 export function UserFollow({ authorId, userId }) {
-  const { user } = useFetchUser(authorId, userId);
+  const { user, isLoading } = useFetchUser(authorId, userId);
 
   const [follow, setFollow] = useState(user.followBool);
 
@@ -27,7 +28,11 @@ export function UserFollow({ authorId, userId }) {
     setFollow(false);
   };
 
-  return (
+  return isLoading ? (
+    <div className="flex">
+      <Skeleton className="w-full h-[80px] mt-2" />
+    </div>
+  ) : (
     <div className="my-5 flex items-center gap-2">
       <Avatar
         className="size-15 rounded-lg cursor-pointer"
