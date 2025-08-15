@@ -2,13 +2,15 @@ import { useFetchUserPosts } from "@/hooks/posts/useFetchUserPosts";
 import { useParams } from "react-router-dom";
 import { Post } from "@/components/home/post";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function ProfilePosts({ userId }) {
   const params = useParams();
   const { posts, isLoading } = useFetchUserPosts(params.username, userId);
 
-  return (
-    !isLoading &&
+  return isLoading ? (
+    <Skeleton className="w-full h-[600px]" />
+  ) : (
     posts.length != 0 && (
       <div className="w-full bg-popover h-fit flex flex-col items-center gap rounded-lg p-5  border">
         {posts &&
