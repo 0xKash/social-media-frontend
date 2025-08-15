@@ -25,12 +25,13 @@ export const transformUser = (apiUser, userId) => {
 
 // Auth
 export const transformAuth = (authUser) => {
+  console.log(authUser);
   return {
     id: authUser.id,
     username: authUser.username,
     description: authUser.description,
     avatar: authUser.avatar ? authUser.avatar : authUser.photos[0].value,
     followBool: false,
-    badgeBool: authUser.nodeId ? true : false,
+    badgeBool: authUser.github_id ? true : false,
   };
 };

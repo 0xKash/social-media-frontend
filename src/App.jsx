@@ -13,6 +13,7 @@ const router = createBrowserRouter(routes);
 
 function App() {
   const data = useFetchAuth();
+  localStorage.sidebar_state = true;
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

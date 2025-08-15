@@ -16,17 +16,19 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
   const { user, isLoading } = useContext(UserContext);
 
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <SidebarTitle />
-      </SidebarHeader>
-      <SidebarContent>
-        <SidebarMenuContent />
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={user} isLoading={isLoading} />
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
+    localStorage.sidebar_state != "false" && (
+      <Sidebar collapsible="icon" {...props}>
+        <SidebarHeader>
+          <SidebarTitle />
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarMenuContent />
+        </SidebarContent>
+        <SidebarFooter>
+          <NavUser user={user} isLoading={isLoading} />
+        </SidebarFooter>
+        <SidebarRail />
+      </Sidebar>
+    )
   );
 }

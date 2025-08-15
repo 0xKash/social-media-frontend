@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const Home = () => {
   const { user, isLoading } = useContext(UserContext);
+  localStorage.sidebar_state = "true";
 
   return (
     <main className="w-full py-10 pr-11 lg:pr-20 lg:pl-9 flex gap-5 min-h-screen">
