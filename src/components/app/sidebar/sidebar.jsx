@@ -22,7 +22,7 @@ export function AppSidebar({ name, githubBadge, avatar, ...props }) {
           <SidebarTitle />
         </SidebarHeader>
         <SidebarContent>
-          <SidebarMenuContent />
+          <SidebarMenuContent user={user} />
         </SidebarContent>
         <SidebarFooter>
           <NavUser user={user} isLoading={isLoading} />
