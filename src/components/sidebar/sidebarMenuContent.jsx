@@ -7,33 +7,37 @@ import {
   SidebarMenuButton,
   SidebarGroupContent,
 } from "@/components/ui/sidebar";
-import { Home, Flame, Contact, Settings } from "lucide-react";
+import { Home, Flame, Contact, Settings, User2 } from "lucide-react";
 
-const items = [
-  {
-    title: "Home",
-    url: "/home",
-    icon: Home,
-  },
-  {
-    title: "Trending",
-    url: "/home?trending=true",
-    icon: Flame,
-  },
-  {
-    title: "Following",
-    url: "/home?following=true",
-    icon: Contact,
-  },
+export function SidebarMenuContent({ user }) {
+  const items = [
+    {
+      title: "Home",
+      url: "/home",
+      icon: Home,
+    },
+    {
+      title: "Trending",
+      url: "/home?trending=true",
+      icon: Flame,
+    },
+    {
+      title: "Following",
+      url: "/home?following=true",
+      icon: Contact,
+    },
+    {
+      title: "Profile",
+      url: `/${user.username}`,
+      icon: User2,
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
+    },
+  ];
 
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
-  },
-];
-
-export function SidebarMenuContent() {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Application</SidebarGroupLabel>
