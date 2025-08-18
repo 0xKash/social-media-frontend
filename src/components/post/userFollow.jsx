@@ -4,13 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { useFetchUser } from "@/hooks/users/useFetchUser";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "@/App";
-import { followUser, unfollowUser } from "@/api/users/follow";
 import { Skeleton } from "../ui/skeleton";
 import { useFollow } from "@/hooks/users/useFollow";
 
-export function UserFollow({ authorId, userId }) {
+export function UserFollowPost({ authorId, userId }) {
   const { user, isLoading } = useFetchUser(authorId, userId);
   const { follow, handleFollow, handleUnfollow } = useFollow(
     user.followBool,
