@@ -25,7 +25,5 @@ export const useLikes = (postId, likeBool, likeNumber) => {
     await dislikePost(postId);
   };
 
-  console.log(like, likeCount);
-
   return { like, likeCount, handleLike, handleDislike };
 };

@@ -35,8 +35,6 @@ export function NavUser({ user, isLoading }) {
     location.pathname = "/login";
   };
 
-  console.log(user);
-
   return (
     <SidebarMenu>
       <SidebarMenuItem>

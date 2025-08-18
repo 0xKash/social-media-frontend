@@ -1,7 +1,6 @@
 // imports
 import { githubLoginUser } from "@/api/auth/auth";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 export function LoginButton() {
   const handleOnClick = async (e) => {
