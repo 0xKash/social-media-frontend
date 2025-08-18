@@ -1,7 +1,5 @@
-import { followUser, unfollowUser } from "@/api/users/follow";
 import { Button } from "@/components/ui/button";
 import { useFollow } from "@/hooks/users/useFollow";
-import { useEffect, useState } from "react";
 
 export function FollowButton({ followBool, userId, plusFollow, minusFollow }) {
   const { follow, handleFollow, handleUnfollow } = useFollow(

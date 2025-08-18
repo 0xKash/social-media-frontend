@@ -25,7 +25,6 @@ export const transformUser = (apiUser, userId) => {
 
 // Auth
 export const transformAuth = (authUser) => {
-  console.log(authUser);
   return {
     id: authUser.id,
     username: authUser.username,
