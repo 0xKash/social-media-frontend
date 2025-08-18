@@ -3,11 +3,9 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
-import { useState } from "react";
-import { followUser, unfollowUser } from "@/api/users/follow";
 import { useFollow } from "@/hooks/users/useFollow";
 
-export function UserFollow({
+export function UserFollowHome({
   username,
   avatar,
   followBool,
