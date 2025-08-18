@@ -1,5 +1,5 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { HoverCardHome } from "@/components/home/hovercard";
+import { HoverCardCommon } from "@/components/common/hovercard";
 import { Badge } from "@/components/ui/badge";
 
 import { BadgeCheckIcon } from "lucide-react";
@@ -32,7 +32,7 @@ export function Comment({
             <AvatarImage src={avatar} />
             <AvatarFallback>KH</AvatarFallback>
           </Avatar>
-          <HoverCardHome
+          <HoverCardCommon
             followBool={followBool}
             username={username}
             joinedAt={joinedAt}

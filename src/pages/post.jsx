@@ -1,5 +1,4 @@
 import { MainComments } from "@/components/app/post/mainComments";
-import { FeaturedUsers } from "@/components/app/post/featuredUsers";
 import { InputComment } from "@/components/app/post/inputComment";
 import { PostDisplay } from "@/components/app/post/postDisplay";
 import { useFetchPost } from "@/hooks/posts/useFetchPost";
