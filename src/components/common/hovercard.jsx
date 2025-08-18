@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/hover-card";
 import { useFollow } from "@/hooks/users/useFollow";
 
-export function HoverCardHome({
+export function HoverCardCommon({
   followBool,
   username,
   joinedAt,
