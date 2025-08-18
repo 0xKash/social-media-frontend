@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { Badge, BadgeCheckIcon } from "lucide-react";
 import { DropdownMenuSettings } from "../common/dropdownSettings";
 import { deletePost } from "@/api/posts/post";
+import { useFollow } from "@/hooks/users/useFollow";
 
 export function PostUsername({
   username,
@@ -21,21 +22,10 @@ export function PostUsername({
   date,
   postId,
 }) {
-  const [follow, setFollow] = useState(followBool);
-
-  useEffect(() => {
-    setFollow(followBool);
-  }, [followBool]);
-
-  const handleFollow = async () => {
-    await followUser(authorId);
-    setFollow(true);
-  };
-
-  const handleUnfollow = async () => {
-    await unfollowUser(authorId);
-    setFollow(false);
-  };
+  const { follow, handleFollow, handleUnfollow } = useFollow(
+    followBool,
+    authorId
+  );
 
   const handleDelete = async () => {
     await deletePost(postId);

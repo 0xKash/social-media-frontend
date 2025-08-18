@@ -1,5 +1,5 @@
 // imports
-import { followUser, unfollowUser } from "@/api/users/follow";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,7 +7,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { useEffect, useState } from "react";
+import { useFollow } from "@/hooks/users/useFollow";
 
 export function HoverCardHome({
   followBool,
@@ -17,21 +17,10 @@ export function HoverCardHome({
   authorId,
   userId,
 }) {
-  const [follow, setFollow] = useState(followBool);
-
-  useEffect(() => {
-    setFollow(followBool);
-  }, [followBool]);
-
-  const handleFollow = async () => {
-    await followUser(authorId);
-    setFollow(true);
-  };
-
-  const handleUnfollow = async () => {
-    await unfollowUser(authorId);
-    setFollow(false);
-  };
+  const { follow, handleFollow, handleUnfollow } = useFollow(
+    followBool,
+    authorId
+  );
 
   return (
     <HoverCard>
