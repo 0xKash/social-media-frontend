@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
 import { useState } from "react";
 import { followUser, unfollowUser } from "@/api/users/follow";
+import { useFollow } from "@/hooks/users/useFollow";
 
 export function UserFollow({
   username,
@@ -13,17 +14,10 @@ export function UserFollow({
   badgeBool,
   targetId,
 }) {
-  const [follow, setFollow] = useState(followBool);
-
-  const handleFollow = async () => {
-    await followUser(targetId);
-    setFollow(true);
-  };
-
-  const handleUnfollow = async () => {
-    await unfollowUser(targetId);
-    setFollow(false);
-  };
+  const { follow, handleFollow, handleUnfollow } = useFollow(
+    followBool,
+    targetId
+  );
 
   return (
     <div className="my-5 flex items-center gap-2">

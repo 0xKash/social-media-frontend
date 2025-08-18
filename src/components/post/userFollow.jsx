@@ -8,25 +8,14 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/App";
 import { followUser, unfollowUser } from "@/api/users/follow";
 import { Skeleton } from "../ui/skeleton";
+import { useFollow } from "@/hooks/users/useFollow";
 
 export function UserFollow({ authorId, userId }) {
   const { user, isLoading } = useFetchUser(authorId, userId);
-
-  const [follow, setFollow] = useState(user.followBool);
-
-  useEffect(() => {
-    setFollow(user.followBool);
-  }, [user.followBool]);
-
-  const handleFollow = async () => {
-    await followUser(authorId);
-    setFollow(true);
-  };
-
-  const handleUnfollow = async () => {
-    await unfollowUser(authorId);
-    setFollow(false);
-  };
+  const { follow, handleFollow, handleUnfollow } = useFollow(
+    user.followBool,
+    authorId
+  );
 
   return isLoading ? (
     <div className="flex">
